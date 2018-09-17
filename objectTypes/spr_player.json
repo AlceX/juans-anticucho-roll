@@ -3,8 +3,39 @@
 	"plugin-id": "Sprite",
 	"sid": 447324207954891,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "is_moving",
+			"type": "boolean",
+			"desc": "True when the player is moving to a new grid.",
+			"sid": 984226694094356
+		},
+		{
+			"name": "movement_lerp",
+			"type": "number",
+			"desc": "Value between 0 and 1 used to lerp the player to new grid positions.",
+			"sid": 158235206692844
+		},
+		{
+			"name": "new_x_pos",
+			"type": "number",
+			"desc": "X position the character should be moving towards.",
+			"sid": 487968381676872
+		},
+		{
+			"name": "new_y_pos",
+			"type": "number",
+			"desc": "Y position the player should be moving towards.",
+			"sid": 926344408456093
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 516400388930819
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [

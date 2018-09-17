@@ -1,0 +1,377 @@
+{
+	"name": "eLevel",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 195649182642728
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "spr_player",
+					"sid": 541308629325206,
+					"parameters": {
+						"instance-variable": "new_x_pos",
+						"value": "Self.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "spr_player",
+					"sid": 492760892561797,
+					"parameters": {
+						"instance-variable": "new_y_pos",
+						"value": "Self.Y"
+					}
+				}
+			],
+			"sid": 189162860775503
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 220403873080432,
+					"parameters": {
+						"key": 38
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 802735398088979,
+					"parameters": {
+						"name": "\"eLevel/move_player\"",
+						"parameter-n": [
+							"\"up\""
+						]
+					}
+				}
+			],
+			"sid": 653795810593046
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 879525716630820,
+					"parameters": {
+						"key": 37
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 347217670890018,
+					"parameters": {
+						"name": "\"eLevel/move_player\"",
+						"parameter-n": [
+							"\"left\""
+						]
+					}
+				}
+			],
+			"sid": 101865194179393
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 535992533848519,
+					"parameters": {
+						"key": 40
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 127832402860825,
+					"parameters": {
+						"name": "\"eLevel/move_player\"",
+						"parameter-n": [
+							"\"down\""
+						]
+					}
+				}
+			],
+			"sid": 195637442107997
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 394011315445028,
+					"parameters": {
+						"key": 39
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 409849425995324,
+					"parameters": {
+						"name": "\"eLevel/move_player\"",
+						"parameter-n": [
+							"\"right\""
+						]
+					}
+				}
+			],
+			"sid": 660836306109733
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 942881654027315,
+					"parameters": {
+						"name": "\"eLevel/move_player\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 988368909363697,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "spr_player",
+							"sid": 648185096096461,
+							"parameters": {
+								"instance-variable": "is_moving"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "spr_player",
+							"sid": 216112175174806,
+							"parameters": {
+								"instance-variable": "is_moving",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 845883050601467,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 665972689769789,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"up\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "spr_player",
+									"sid": 620573090749774,
+									"parameters": {
+										"instance-variable": "new_y_pos",
+										"value": "80"
+									}
+								}
+							],
+							"sid": 623514021926225
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 435256433063513,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "spr_player",
+									"sid": 365961604160367,
+									"parameters": {
+										"instance-variable": "new_x_pos",
+										"value": "80"
+									}
+								}
+							],
+							"sid": 616522099258910
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 446314208987530,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"down\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "spr_player",
+									"sid": 542096188257976,
+									"parameters": {
+										"instance-variable": "new_y_pos",
+										"value": "80"
+									}
+								}
+							],
+							"sid": 542191535214194
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 234936982908682,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "spr_player",
+									"sid": 772546140370510,
+									"parameters": {
+										"instance-variable": "new_x_pos",
+										"value": "80"
+									}
+								}
+							],
+							"sid": 449270074170116
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "spr_player",
+									"sid": 689792855127746,
+									"parameters": {
+										"instance-variable": "new_x_pos",
+										"value": "clamp(Self.new_x_pos, 40, 600)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "spr_player",
+									"sid": 675058849573037,
+									"parameters": {
+										"instance-variable": "new_y_pos",
+										"value": "clamp(Self.new_y_pos, 40, 440)"
+									}
+								}
+							],
+							"sid": 744939435813712
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "spr_player",
+					"sid": 475086682478237,
+					"parameters": {
+						"instance-variable": "is_moving"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "spr_player",
+					"sid": 299411453466733,
+					"parameters": {
+						"x": "lerp(Self.X, Self.new_x_pos, 0.35)",
+						"y": "lerp(Self.Y, Self.new_y_pos, 0.35)"
+					}
+				}
+			],
+			"sid": 704954579180667,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 879283409985362,
+							"parameters": {
+								"first-value": "distance(spr_player.X, spr_player.Y, spr_player.new_x_pos, spr_player.new_y_pos)",
+								"comparison": 2,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "spr_player",
+							"sid": 618269408799919,
+							"parameters": {
+								"instance-variable": "is_moving",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 952215376305231
+				}
+			]
+		}
+	],
+	"sid": 862811235109440
+}
