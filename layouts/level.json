@@ -1531,9 +1531,9 @@
 					"uid": 1,
 					"instanceVariables": {
 						"is_moving": false,
-						"movement_lerp": 0,
-						"new_x_pos": 0,
-						"new_y_pos": 0
+						"new_x": 0,
+						"new_y": 0,
+						"grabbed_anticucho_uid": -1
 					},
 					"behaviors": {
 						"Solid": {
@@ -1568,11 +1568,15 @@
 						"live-preview": false
 					},
 					"uid": 56,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"is_moving": false,
+						"new_x": 0,
+						"new_y": 0
+					},
 					"behaviors": {},
 					"world": {
-						"x": 400,
-						"y": 80,
+						"x": 320,
+						"y": 160,
 						"width": 80,
 						"height": 240,
 						"originX": 0,
@@ -1633,11 +1637,15 @@
 						"live-preview": false
 					},
 					"uid": 58,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"is_moving": false,
+						"new_x": 0,
+						"new_y": 0
+					},
 					"behaviors": {},
 					"world": {
 						"x": 320,
-						"y": 320,
+						"y": 80,
 						"width": 80,
 						"height": 240,
 						"originX": 0,
@@ -1649,6 +1657,34 @@
 							1
 						],
 						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "obj_anticucho_collision_check",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "3_piece",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 59,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": -80,
+						"y": 0,
+						"width": 80,
+						"height": 240,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0
 					}
 				}
 			],

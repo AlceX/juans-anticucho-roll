@@ -11,22 +11,22 @@
 			"sid": 984226694094356
 		},
 		{
-			"name": "movement_lerp",
-			"type": "number",
-			"desc": "Value between 0 and 1 used to lerp the player to new grid positions.",
-			"sid": 158235206692844
-		},
-		{
-			"name": "new_x_pos",
+			"name": "new_x",
 			"type": "number",
 			"desc": "X position the character should be moving towards.",
 			"sid": 487968381676872
 		},
 		{
-			"name": "new_y_pos",
+			"name": "new_y",
 			"type": "number",
 			"desc": "Y position the player should be moving towards.",
 			"sid": 926344408456093
+		},
+		{
+			"name": "grabbed_anticucho_uid",
+			"type": "number",
+			"desc": "-1 when no anticucho is grabbed.",
+			"sid": 831488610356015
 		}
 	],
 	"behaviorTypes": [

@@ -54,7 +54,8 @@
 			"spr_fire",
 			"bg_grill",
 			"spr_anticucho",
-			"debug_text"
+			"debug_text",
+			"obj_anticucho_collision_check"
 		],
 		"subfolders": [
 			{
