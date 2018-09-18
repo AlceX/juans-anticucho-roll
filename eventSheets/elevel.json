@@ -55,6 +55,15 @@
 							"\"up\""
 						]
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "spr_player",
+					"sid": 126230179642905,
+					"parameters": {
+						"animation": "\"up\"",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 653795810593046
@@ -81,6 +90,15 @@
 						"parameter-n": [
 							"\"left\""
 						]
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "spr_player",
+					"sid": 418458184698796,
+					"parameters": {
+						"animation": "\"left\"",
+						"from": "beginning"
 					}
 				}
 			],
@@ -109,6 +127,15 @@
 							"\"down\""
 						]
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "spr_player",
+					"sid": 209705069248046,
+					"parameters": {
+						"animation": "\"down\"",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 195637442107997
@@ -135,6 +162,15 @@
 						"parameter-n": [
 							"\"right\""
 						]
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "spr_player",
+					"sid": 836068004544476,
+					"parameters": {
+						"animation": "\"right\"",
+						"from": "beginning"
 					}
 				}
 			],
