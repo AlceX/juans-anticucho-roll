@@ -1,0 +1,1306 @@
+{
+	"name": "old_level_code",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 195649182642728
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "spr_player",
+					"sid": 541308629325206,
+					"parameters": {
+						"instance-variable": "new_x",
+						"value": "Self.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "spr_player",
+					"sid": 492760892561797,
+					"parameters": {
+						"instance-variable": "new_y",
+						"value": "Self.Y"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "spr_anticucho",
+					"sid": 372772425788774,
+					"parameters": {
+						"instance-variable": "new_x",
+						"value": "Self.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "spr_anticucho",
+					"sid": 901097610208837,
+					"parameters": {
+						"instance-variable": "new_y",
+						"value": "Self.Y"
+					}
+				}
+			],
+			"sid": 189162860775503
+		},
+		{
+			"eventType": "comment",
+			"text": "Movement"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 136664013813500,
+					"parameters": {
+						"key": 32
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 904708285579399,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "spr_player",
+							"sid": 259695066656139,
+							"parameters": {
+								"instance-variable": "is_moving"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 887564083918745,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 451944443286974,
+									"parameters": {
+										"key": 38
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 606851036185451,
+									"parameters": {
+										"name": "\"eLevel/move_player\"",
+										"parameter-n": [
+											"\"up\""
+										]
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_player",
+									"sid": 230720388635317,
+									"parameters": {
+										"animation": "\"up\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 228935427063505
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 451245104258582,
+									"parameters": {
+										"key": 37
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 463598727732849,
+									"parameters": {
+										"name": "\"eLevel/move_player\"",
+										"parameter-n": [
+											"\"left\""
+										]
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_player",
+									"sid": 421162812873951,
+									"parameters": {
+										"animation": "\"left\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 836692735789192
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 395404472110953,
+									"parameters": {
+										"key": 40
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 595152847605565,
+									"parameters": {
+										"name": "\"eLevel/move_player\"",
+										"parameter-n": [
+											"\"down\""
+										]
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_player",
+									"sid": 179016733384005,
+									"parameters": {
+										"animation": "\"down\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 262679080226566
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 386958882296814,
+									"parameters": {
+										"key": 39
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 617800054551636,
+									"parameters": {
+										"name": "\"eLevel/move_player\"",
+										"parameter-n": [
+											"\"right\""
+										]
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_player",
+									"sid": 809574076942343,
+									"parameters": {
+										"animation": "\"right\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 387590323794736
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Grabbing anticuchos"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 458795398126825,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [],
+			"sid": 858129793928904,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "spr_player",
+							"sid": 974250886416759,
+							"parameters": {
+								"animation": "\"up\""
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "spr_player",
+							"sid": 252119262379210,
+							"parameters": {
+								"object": "spr_anticucho",
+								"offset-x": "0",
+								"offset-y": "-80"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "spr_player",
+							"sid": 326389076637590,
+							"parameters": {
+								"instance-variable": "grabbed_anticucho_uid",
+								"value": "spr_anticucho.UID"
+							}
+						}
+					],
+					"sid": 896342254002084
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "spr_player",
+							"sid": 560286933117750,
+							"parameters": {
+								"animation": "\"left\""
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "spr_player",
+							"sid": 390916553881698,
+							"parameters": {
+								"object": "spr_anticucho",
+								"offset-x": "-80",
+								"offset-y": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "spr_player",
+							"sid": 283105316461875,
+							"parameters": {
+								"instance-variable": "grabbed_anticucho_uid",
+								"value": "spr_anticucho.UID"
+							}
+						}
+					],
+					"sid": 180496370979435
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "spr_player",
+							"sid": 997427139528479,
+							"parameters": {
+								"animation": "\"down\""
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "spr_player",
+							"sid": 800022943407508,
+							"parameters": {
+								"object": "spr_anticucho",
+								"offset-x": "0",
+								"offset-y": "80"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "spr_player",
+							"sid": 339967748166253,
+							"parameters": {
+								"instance-variable": "grabbed_anticucho_uid",
+								"value": "spr_anticucho.UID"
+							}
+						}
+					],
+					"sid": 563069430274186
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "spr_player",
+							"sid": 681737736692479,
+							"parameters": {
+								"animation": "\"right\"\n"
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "spr_player",
+							"sid": 638289122903679,
+							"parameters": {
+								"object": "spr_anticucho",
+								"offset-x": "80",
+								"offset-y": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "spr_player",
+							"sid": 153118765332269,
+							"parameters": {
+								"instance-variable": "grabbed_anticucho_uid",
+								"value": "spr_anticucho.UID"
+							}
+						}
+					],
+					"sid": 193950974493731
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 954601461333779,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "spr_player",
+					"sid": 386266138736118,
+					"parameters": {
+						"instance-variable": "grabbed_anticucho_uid",
+						"value": "-1"
+					}
+				}
+			],
+			"sid": 613206438898766
+		},
+		{
+			"eventType": "comment",
+			"text": "Pushing/pulling anticuchos"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 125416840695676,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [],
+			"sid": 956718330621338,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "spr_player",
+							"sid": 175441312804178,
+							"parameters": {
+								"instance-variable": "is_moving"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 868551098774894,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "If the player isn't holding an anticucho, then he can move but with his direction locked."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_player",
+									"sid": 734920355122804,
+									"parameters": {
+										"instance-variable": "grabbed_anticucho_uid",
+										"comparison": 0,
+										"value": "-1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 718366107966677,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 859381538311149,
+											"parameters": {
+												"key": 38
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 755745529931062,
+											"parameters": {
+												"name": "\"eLevel/move_player\"",
+												"parameter-n": [
+													"\"up\""
+												]
+											}
+										}
+									],
+									"sid": 761411281739530
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 278619925822518,
+											"parameters": {
+												"key": 37
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 157980750421019,
+											"parameters": {
+												"name": "\"eLevel/move_player\"",
+												"parameter-n": [
+													"\"left\""
+												]
+											}
+										}
+									],
+									"sid": 284778541647164
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 452572033766403,
+											"parameters": {
+												"key": 40
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 142195270078648,
+											"parameters": {
+												"name": "\"eLevel/move_player\"",
+												"parameter-n": [
+													"\"down\""
+												]
+											}
+										}
+									],
+									"sid": 319934604455184
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 634055995403691,
+											"parameters": {
+												"key": 39
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 155551122966801,
+											"parameters": {
+												"name": "\"eLevel/move_player\"",
+												"parameter-n": [
+													"\"right\""
+												]
+											}
+										}
+									],
+									"sid": 282412313168725
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "spr_anticucho",
+									"sid": 441795726654099,
+									"parameters": {
+										"unique-id": "spr_player.grabbed_anticucho_uid"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 609915148652899,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 586308363276435,
+											"parameters": {
+												"key": 38
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "spr_player",
+											"sid": 299547737048636,
+											"parameters": {
+												"object": "spr_anticucho",
+												"offset-x": "0",
+												"offset-y": "-80"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 780907019762726,
+											"parameters": {
+												"first-value": "Function.Call(\"eLevel/can_move_anticucho\", spr_player.grabbed_anticucho_uid, \"up\")",
+												"comparison": 0,
+												"second-value": "\"true\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "spr_player",
+											"sid": 898811247856621,
+											"parameters": {
+												"instance-variable": "new_y",
+												"value": "80"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "spr_player",
+											"sid": 489200398152020,
+											"parameters": {
+												"instance-variable": "is_moving",
+												"value": "true"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "spr_anticucho",
+											"sid": 821319771970606,
+											"parameters": {
+												"instance-variable": "new_y",
+												"value": "80"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "spr_anticucho",
+											"sid": 738968262335878,
+											"parameters": {
+												"instance-variable": "is_moving",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 764637188348658
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 825042238520739,
+											"parameters": {
+												"key": 37
+											}
+										}
+									],
+									"actions": [],
+									"sid": 598118995610078
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 855447719204863,
+											"parameters": {
+												"key": 40
+											}
+										}
+									],
+									"actions": [],
+									"sid": 255466183882852
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 630817911264107,
+											"parameters": {
+												"key": 39
+											}
+										}
+									],
+									"actions": [],
+									"sid": 595787055348652
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 942881654027315,
+					"parameters": {
+						"name": "\"eLevel/move_player\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 988368909363697,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-parameter",
+							"objectClass": "Function",
+							"sid": 205987632538487,
+							"parameters": {
+								"index": "0",
+								"comparison": 0,
+								"value": "\"up\""
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "spr_player",
+							"sid": 271451385446295,
+							"parameters": {
+								"object": "spr_anticucho",
+								"offset-x": "0",
+								"offset-y": "-80"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "spr_player",
+							"sid": 977122127365060,
+							"parameters": {
+								"instance-variable": "new_y",
+								"value": "80"
+							}
+						}
+					],
+					"sid": 566937699349029
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-parameter",
+							"objectClass": "Function",
+							"sid": 815159908465479,
+							"parameters": {
+								"index": "0",
+								"comparison": 0,
+								"value": "\"left\""
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "spr_player",
+							"sid": 994308420579393,
+							"parameters": {
+								"object": "spr_anticucho",
+								"offset-x": "-80",
+								"offset-y": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "spr_player",
+							"sid": 848149398124915,
+							"parameters": {
+								"instance-variable": "new_x",
+								"value": "80"
+							}
+						}
+					],
+					"sid": 974027558171583
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-parameter",
+							"objectClass": "Function",
+							"sid": 957766183680426,
+							"parameters": {
+								"index": "0",
+								"comparison": 0,
+								"value": "\"down\""
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "spr_player",
+							"sid": 883246178693020,
+							"parameters": {
+								"object": "spr_anticucho",
+								"offset-x": "0",
+								"offset-y": "80"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "spr_player",
+							"sid": 932829319256954,
+							"parameters": {
+								"instance-variable": "new_y",
+								"value": "80"
+							}
+						}
+					],
+					"sid": 918315583621192
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-parameter",
+							"objectClass": "Function",
+							"sid": 774666891839674,
+							"parameters": {
+								"index": "0",
+								"comparison": 0,
+								"value": "\"right\""
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "spr_player",
+							"sid": 733370419628038,
+							"parameters": {
+								"object": "spr_anticucho",
+								"offset-x": "80",
+								"offset-y": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "spr_player",
+							"sid": 216792688192347,
+							"parameters": {
+								"instance-variable": "new_x",
+								"value": "80"
+							}
+						}
+					],
+					"sid": 828164219599574
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "spr_player",
+							"sid": 360084194905888,
+							"parameters": {
+								"instance-variable": "is_moving",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "spr_player",
+							"sid": 890371064043341,
+							"parameters": {
+								"instance-variable": "new_x",
+								"value": "clamp(Self.new_x, 40, 600)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "spr_player",
+							"sid": 608867847422735,
+							"parameters": {
+								"instance-variable": "new_y",
+								"value": "clamp(Self.new_y, 40, 440)"
+							}
+						}
+					],
+					"sid": 675187449375352
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "spr_player",
+					"sid": 475086682478237,
+					"parameters": {
+						"instance-variable": "is_moving"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "spr_player",
+					"sid": 922013084811976,
+					"parameters": {
+						"x": "lerp(Self.X, Self.new_x, 0.35)",
+						"y": "lerp(Self.Y, Self.new_y, 0.35)"
+					}
+				}
+			],
+			"sid": 704954579180667,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 879283409985362,
+							"parameters": {
+								"first-value": "distance(spr_player.X, spr_player.Y, spr_player.new_x, spr_player.new_y)",
+								"comparison": 2,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "spr_player",
+							"sid": 618269408799919,
+							"parameters": {
+								"instance-variable": "is_moving",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 952215376305231
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "spr_anticucho",
+					"sid": 815142008325106,
+					"parameters": {
+						"instance-variable": "is_moving"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "spr_anticucho",
+					"sid": 875454624437988,
+					"parameters": {
+						"x": "lerp(Self.X, Self.new_x, 0.35)",
+						"y": "lerp(Self.Y, Self.new_y, 0.35)"
+					}
+				}
+			],
+			"sid": 790953963436710,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 758893952741352,
+							"parameters": {
+								"first-value": "distance(spr_anticucho.X, spr_anticucho.Y, spr_anticucho.new_x, spr_anticucho.new_y)",
+								"comparison": 2,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "spr_anticucho",
+							"sid": 928335831073165,
+							"parameters": {
+								"instance-variable": "is_moving",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 765490392948697
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Returns \"true\" or \"false\". 0: Anticucho UID - 1: Direction of movement"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 770038817605549,
+					"parameters": {
+						"name": "\"eLevel/can_move_anticucho\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 497787971999483,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "spr_anticucho",
+							"sid": 262691634661870,
+							"parameters": {
+								"unique-id": "Function.Param(0)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "spr_anticucho",
+							"sid": 427397980508425,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "obj_anticucho_collision_check",
+							"sid": 973224035339955,
+							"parameters": {
+								"animation": "spr_anticucho.AnimationName",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "obj_anticucho_collision_check",
+							"sid": 996480609272528,
+							"parameters": {
+								"angle": "spr_anticucho.Angle"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "obj_anticucho_collision_check",
+							"sid": 190149835892668,
+							"parameters": {
+								"object": "spr_anticucho",
+								"image-point-optional": "0"
+							}
+						}
+					],
+					"sid": 293890986027088,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 390179909351534,
+									"parameters": {
+										"index": "1",
+										"comparison": 0,
+										"value": "\"up\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "obj_anticucho_collision_check",
+									"sid": 319783148537638,
+									"parameters": {
+										"y": "Self.Y - 80"
+									}
+								}
+							],
+							"sid": 700488566508338
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 787488896194317,
+									"parameters": {
+										"index": "1",
+										"comparison": 0,
+										"value": "\"left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "obj_anticucho_collision_check",
+									"sid": 611012400406272,
+									"parameters": {
+										"x": "Self.X - 80"
+									}
+								}
+							],
+							"sid": 595313570385222
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 973088528012536,
+									"parameters": {
+										"index": "1",
+										"comparison": 0,
+										"value": "\"down\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "obj_anticucho_collision_check",
+									"sid": 414250167597427,
+									"parameters": {
+										"y": "Self.Y + 80"
+									}
+								}
+							],
+							"sid": 590137103020738
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "Function",
+									"sid": 189822790358443,
+									"parameters": {
+										"index": "1",
+										"comparison": 0,
+										"value": "\"right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "obj_anticucho_collision_check",
+									"sid": 822984875412024,
+									"parameters": {
+										"x": "Self.X + 80"
+									}
+								}
+							],
+							"sid": 204095100828506
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "obj_anticucho_collision_check",
+							"sid": 641316420526366,
+							"parameters": {
+								"object": "spr_anticucho"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-return-value",
+							"objectClass": "Function",
+							"sid": 580295103313102,
+							"parameters": {
+								"value": "\"true\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "debug_text",
+							"sid": 218480837505253,
+							"parameters": {
+								"text": "\"true\""
+							}
+						}
+					],
+					"sid": 210193789369500
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "obj_anticucho_collision_check",
+							"sid": 425236535024794,
+							"parameters": {
+								"object": "spr_anticucho"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-return-value",
+							"objectClass": "Function",
+							"sid": 659930522857002,
+							"parameters": {
+								"value": "\"false\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "debug_text",
+							"sid": 982678920677695,
+							"parameters": {
+								"text": "\"false\""
+							}
+						}
+					],
+					"sid": 799020748012970
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "spr_anticucho",
+							"sid": 527816722355782,
+							"parameters": {
+								"unique-id": "Function.Param(0)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "spr_anticucho",
+							"sid": 125037336383964,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						}
+					],
+					"sid": 398233599708469
+				}
+			]
+		}
+	],
+	"sid": 862811235109440
+}
