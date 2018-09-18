@@ -193,6 +193,17 @@
 										"comparison": 0,
 										"value": "\"up\""
 									}
+								},
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "spr_player",
+									"sid": 603863029487170,
+									"parameters": {
+										"object": "spr_anticucho",
+										"offset-x": "0",
+										"offset-y": "-80"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -220,6 +231,17 @@
 										"comparison": 0,
 										"value": "\"left\""
 									}
+								},
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "spr_player",
+									"sid": 133409728613434,
+									"parameters": {
+										"object": "spr_anticucho",
+										"offset-x": "-80",
+										"offset-y": "0"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -247,13 +269,24 @@
 										"comparison": 0,
 										"value": "\"down\""
 									}
+								},
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "spr_player",
+									"sid": 663899153620410,
+									"parameters": {
+										"object": "spr_anticucho",
+										"offset-x": "0",
+										"offset-y": "80"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
 									"id": "add-to-instvar",
 									"objectClass": "spr_player",
-									"sid": 542096188257976,
+									"sid": 917797391579722,
 									"parameters": {
 										"instance-variable": "new_y_pos",
 										"value": "80"
@@ -274,6 +307,17 @@
 										"comparison": 0,
 										"value": "\"right\""
 									}
+								},
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "spr_player",
+									"sid": 240089871487681,
+									"parameters": {
+										"object": "spr_anticucho",
+										"offset-x": "80",
+										"offset-y": "0"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -334,7 +378,7 @@
 				{
 					"id": "set-position",
 					"objectClass": "spr_player",
-					"sid": 299411453466733,
+					"sid": 922013084811976,
 					"parameters": {
 						"x": "lerp(Self.X, Self.new_x_pos, 0.35)",
 						"y": "lerp(Self.Y, Self.new_y_pos, 0.35)"
