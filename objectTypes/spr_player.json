@@ -11,16 +11,28 @@
 			"sid": 984226694094356
 		},
 		{
-			"name": "new_x",
+			"name": "world_x",
 			"type": "number",
 			"desc": "X position the character should be moving towards.",
 			"sid": 487968381676872
 		},
 		{
-			"name": "new_y",
+			"name": "world_y",
 			"type": "number",
 			"desc": "Y position the player should be moving towards.",
 			"sid": 926344408456093
+		},
+		{
+			"name": "grid_x",
+			"type": "number",
+			"desc": "X position in the array.",
+			"sid": 310124198947400
+		},
+		{
+			"name": "grid_y",
+			"type": "number",
+			"desc": "",
+			"sid": 591033079842349
 		},
 		{
 			"name": "grabbed_anticucho_uid",

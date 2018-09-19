@@ -1447,8 +1447,10 @@
 					"uid": 1,
 					"instanceVariables": {
 						"is_moving": false,
-						"new_x": 0,
-						"new_y": 0,
+						"world_x": 0,
+						"world_y": 0,
+						"grid_x": 0,
+						"grid_y": 0,
 						"grabbed_anticucho_uid": -1
 					},
 					"behaviors": {
@@ -1459,8 +1461,8 @@
 						}
 					},
 					"world": {
-						"x": 40,
-						"y": 40,
+						"x": 200,
+						"y": 202,
 						"width": 50,
 						"height": 50,
 						"originX": 0.5,
