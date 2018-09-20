@@ -1,7 +1,7 @@
 {
-	"name": "debug_text",
+	"name": "debug_array",
 	"plugin-id": "Spritefont2",
-	"sid": 189983295321405,
+	"sid": 353785841720413,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -14,6 +14,6 @@
 		"originalSource": "",
 		"exportFormat": "png",
 		"exportQuality": 0.8,
-		"imageSpriteId": 2
+		"imageSpriteId": 6
 	}
 }

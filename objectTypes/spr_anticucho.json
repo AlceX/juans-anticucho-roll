@@ -5,19 +5,13 @@
 	"isGlobal": false,
 	"instanceVariables": [
 		{
-			"name": "is_moving",
-			"type": "boolean",
-			"desc": "",
-			"sid": 570563140870381
-		},
-		{
-			"name": "new_x",
+			"name": "world_x",
 			"type": "number",
 			"desc": "",
 			"sid": 687702852971261
 		},
 		{
-			"name": "new_y",
+			"name": "world_y",
 			"type": "number",
 			"desc": "",
 			"sid": 584660906115846

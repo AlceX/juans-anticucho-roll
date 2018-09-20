@@ -60,9 +60,10 @@
 		"items": [
 			"spr_player",
 			"spr_anticucho",
-			"debug_text",
+			"debug_array",
 			"obj_anticucho_collision_check",
-			"arr_board_state"
+			"arr_board_state",
+			"debug_text"
 		],
 		"subfolders": [
 			{
