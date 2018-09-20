@@ -214,6 +214,15 @@
 												"y": "y",
 												"value": "1"
 											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_anticucho",
+											"sid": 575986869867342,
+											"parameters": {
+												"instance-variable": "grid_positions",
+												"value": "Self.grid_positions & x & \",\" & y & \"|\""
+											}
 										}
 									],
 									"sid": 479894953431617,
@@ -291,6 +300,22 @@
 											"isOrBlock": true
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_anticucho",
+											"sid": 533543472422233,
+											"parameters": {
+												"instance-variable": "grid_positions",
+												"value": "left(Self.grid_positions, len(Self.grid_positions) - 1)"
+											}
+										}
+									],
+									"sid": 382081550462436
 								}
 							]
 						}
@@ -560,82 +585,349 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-key-pressed",
+									"id": "key-is-down",
 									"objectClass": "Keyboard",
-									"sid": 135922857355899,
+									"sid": 153558189891073,
 									"parameters": {
-										"key": 38
-									}
+										"key": 32
+									},
+									"isInverted": true
 								}
 							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "spr_player",
-									"sid": 713952163966567,
-									"parameters": {
-										"animation": "\"up\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 506393209893463,
+							"actions": [],
+							"sid": 659089437725169,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 584972815396157,
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 930695655400974,
 											"parameters": {
-												"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y - 1)",
-												"comparison": 0,
-												"second-value": "\"true\""
+												"key": 38
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 693517479481205,
-											"parameters": {
-												"x": "spr_player.grid_x",
-												"y": "spr_player.grid_y",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 438952651073025,
-											"parameters": {
-												"x": "spr_player.grid_x",
-												"y": "spr_player.grid_y - 1",
-												"value": "\"X\""
-											}
-										},
-										{
-											"id": "subtract-from-instvar",
+											"id": "set-animation",
 											"objectClass": "spr_player",
-											"sid": 178662975041530,
+											"sid": 422634770364624,
 											"parameters": {
-												"instance-variable": "world_y",
-												"value": "TILE_SIZE"
-											}
-										},
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "spr_player",
-											"sid": 363970366360648,
-											"parameters": {
-												"instance-variable": "grid_y",
-												"value": "1"
+												"animation": "\"up\"",
+												"from": "beginning"
 											}
 										}
 									],
-									"sid": 302527108274254
+									"sid": 710397790156199,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 441620529369474,
+													"parameters": {
+														"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y - 1)",
+														"comparison": 0,
+														"second-value": "\"true\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 235750485153964,
+													"parameters": {
+														"x": "spr_player.grid_x",
+														"y": "spr_player.grid_y",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 887024260801881,
+													"parameters": {
+														"x": "spr_player.grid_x",
+														"y": "spr_player.grid_y - 1",
+														"value": "\"X\""
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "spr_player",
+													"sid": 467641849911008,
+													"parameters": {
+														"instance-variable": "world_y",
+														"value": "TILE_SIZE"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "spr_player",
+													"sid": 349625320463571,
+													"parameters": {
+														"instance-variable": "grid_y",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 859098127977329
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 431290114547471,
+											"parameters": {
+												"key": 37
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "spr_player",
+											"sid": 835107291988152,
+											"parameters": {
+												"animation": "\"left\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 904503321568349,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 136878997922827,
+													"parameters": {
+														"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x - 1, spr_player.grid_y)",
+														"comparison": 0,
+														"second-value": "\"true\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 137410325844061,
+													"parameters": {
+														"x": "spr_player.grid_x",
+														"y": "spr_player.grid_y",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 192899131624987,
+													"parameters": {
+														"x": "spr_player.grid_x - 1",
+														"y": "spr_player.grid_y",
+														"value": "\"X\""
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "spr_player",
+													"sid": 677694021798610,
+													"parameters": {
+														"instance-variable": "world_x",
+														"value": "TILE_SIZE"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "spr_player",
+													"sid": 335291747162355,
+													"parameters": {
+														"instance-variable": "grid_x",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 342260584160848
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 210327943404025,
+											"parameters": {
+												"key": 40
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "spr_player",
+											"sid": 378111033423097,
+											"parameters": {
+												"animation": "\"down\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 126308411971682,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 410007549170176,
+													"parameters": {
+														"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y + 1)",
+														"comparison": 0,
+														"second-value": "\"true\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 253205458270149,
+													"parameters": {
+														"x": "spr_player.grid_x",
+														"y": "spr_player.grid_y",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 933259272923704,
+													"parameters": {
+														"x": "spr_player.grid_x",
+														"y": "spr_player.grid_y + 1",
+														"value": "\"X\""
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "spr_player",
+													"sid": 857099185300758,
+													"parameters": {
+														"instance-variable": "world_y",
+														"value": "TILE_SIZE"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "spr_player",
+													"sid": 329742912041068,
+													"parameters": {
+														"instance-variable": "grid_y",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 919249163334116
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 701514601454644,
+											"parameters": {
+												"key": 39
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "spr_player",
+											"sid": 626450573752306,
+											"parameters": {
+												"animation": "\"right\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 765422440455735,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 409504591657140,
+													"parameters": {
+														"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x + 1, spr_player.grid_y)",
+														"comparison": 0,
+														"second-value": "\"true\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 844339198692050,
+													"parameters": {
+														"x": "spr_player.grid_x",
+														"y": "spr_player.grid_y",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 289817861218808,
+													"parameters": {
+														"x": "spr_player.grid_x + 1",
+														"y": "spr_player.grid_y",
+														"value": "\"X\""
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "spr_player",
+													"sid": 210657106592285,
+													"parameters": {
+														"instance-variable": "world_x",
+														"value": "TILE_SIZE"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "spr_player",
+													"sid": 933815871572751,
+													"parameters": {
+														"instance-variable": "grid_x",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 585125110369645
+										}
+									]
 								}
 							]
 						},
@@ -645,80 +937,154 @@
 								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
-									"sid": 284382926620138,
+									"sid": 378623315851362,
 									"parameters": {
-										"key": 37
+										"key": 32
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "spr_player",
-									"sid": 316488700861742,
-									"parameters": {
-										"animation": "\"left\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 233800982769678,
+							"actions": [],
+							"sid": 462320462991042,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 635284982178081,
+											"id": "is-animation-playing",
+											"objectClass": "spr_player",
+											"sid": 608634326894738,
 											"parameters": {
-												"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x - 1, spr_player.grid_y)",
-												"comparison": 0,
-												"second-value": "\"true\""
+												"animation": "\"up\""
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "spr_player",
+											"sid": 104686564486517,
+											"parameters": {
+												"object": "spr_anticucho",
+												"offset-x": "0",
+												"offset-y": "-80"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 530986383511822,
-											"parameters": {
-												"x": "spr_player.grid_x",
-												"y": "spr_player.grid_y",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 175977519162152,
-											"parameters": {
-												"x": "spr_player.grid_x - 1",
-												"y": "spr_player.grid_y",
-												"value": "\"X\""
-											}
-										},
-										{
-											"id": "subtract-from-instvar",
+											"id": "set-instvar-value",
 											"objectClass": "spr_player",
-											"sid": 255092889216059,
+											"sid": 676014370374138,
 											"parameters": {
-												"instance-variable": "world_x",
-												"value": "TILE_SIZE"
-											}
-										},
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "spr_player",
-											"sid": 580835936422810,
-											"parameters": {
-												"instance-variable": "grid_x",
-												"value": "1"
+												"instance-variable": "grabbed_anticucho_uid",
+												"value": "spr_anticucho.UID"
 											}
 										}
 									],
-									"sid": 454486070658021
+									"sid": 406335198031791
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "spr_player",
+											"sid": 204462429278732,
+											"parameters": {
+												"animation": "\"left\""
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "spr_player",
+											"sid": 878920461006297,
+											"parameters": {
+												"object": "spr_anticucho",
+												"offset-x": "-80",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_player",
+											"sid": 749032905683056,
+											"parameters": {
+												"instance-variable": "grabbed_anticucho_uid",
+												"value": "spr_anticucho.UID"
+											}
+										}
+									],
+									"sid": 110576085739508
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "spr_player",
+											"sid": 119792943492771,
+											"parameters": {
+												"animation": "\"down\""
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "spr_player",
+											"sid": 913200285289844,
+											"parameters": {
+												"object": "spr_anticucho",
+												"offset-x": "0",
+												"offset-y": "80"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_player",
+											"sid": 390286231000750,
+											"parameters": {
+												"instance-variable": "grabbed_anticucho_uid",
+												"value": "spr_anticucho.UID"
+											}
+										}
+									],
+									"sid": 861412567300597
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "spr_player",
+											"sid": 851495153395261,
+											"parameters": {
+												"animation": "\"right\"\n"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "spr_player",
+											"sid": 794228284196128,
+											"parameters": {
+												"object": "spr_anticucho",
+												"offset-x": "80",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_player",
+											"sid": 864937250798524,
+											"parameters": {
+												"instance-variable": "grabbed_anticucho_uid",
+												"value": "spr_anticucho.UID"
+											}
+										}
+									],
+									"sid": 815220260612144
 								}
 							]
 						},
@@ -726,82 +1092,429 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-key-pressed",
+									"id": "key-is-down",
 									"objectClass": "Keyboard",
-									"sid": 411349399936234,
+									"sid": 750448447361701,
 									"parameters": {
-										"key": 40
+										"key": 32
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "spr_player",
-									"sid": 940550054749509,
-									"parameters": {
-										"animation": "\"down\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 203738342581323,
+							"actions": [],
+							"sid": 521056047528616,
 							"children": [
+								{
+									"eventType": "comment",
+									"text": "Holding space while not grabbing an anticucho locks direction."
+								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 865313383117536,
+											"id": "compare-instance-variable",
+											"objectClass": "spr_player",
+											"sid": 320403838116633,
 											"parameters": {
-												"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y + 1)",
+												"instance-variable": "grabbed_anticucho_uid",
 												"comparison": 0,
-												"second-value": "\"true\""
+												"value": "-1"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 812946655119158,
+									"children": [
 										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 550170034973468,
-											"parameters": {
-												"x": "spr_player.grid_x",
-												"y": "spr_player.grid_y",
-												"value": "0"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 618642068241229,
+													"parameters": {
+														"key": 38
+													}
+												}
+											],
+											"actions": [],
+											"sid": 357041338530900,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 705483537871238,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y - 1)",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 939205585234225,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 500468261087505,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y - 1",
+																"value": "\"X\""
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_player",
+															"sid": 469209547880621,
+															"parameters": {
+																"instance-variable": "world_y",
+																"value": "TILE_SIZE"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_player",
+															"sid": 765443944983550,
+															"parameters": {
+																"instance-variable": "grid_y",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 612915323565546
+												}
+											]
 										},
 										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 488040952445968,
-											"parameters": {
-												"x": "spr_player.grid_x",
-												"y": "spr_player.grid_y + 1",
-												"value": "\"X\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 135370726058657,
+													"parameters": {
+														"key": 37
+													}
+												}
+											],
+											"actions": [],
+											"sid": 141600003395584,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 812331926271129,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x - 1, spr_player.grid_y)",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 832729473437856,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 249272855927352,
+															"parameters": {
+																"x": "spr_player.grid_x - 1",
+																"y": "spr_player.grid_y",
+																"value": "\"X\""
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_player",
+															"sid": 915583167170986,
+															"parameters": {
+																"instance-variable": "world_x",
+																"value": "TILE_SIZE"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_player",
+															"sid": 780300579029887,
+															"parameters": {
+																"instance-variable": "grid_x",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 604582728054329
+												}
+											]
 										},
 										{
-											"id": "add-to-instvar",
-											"objectClass": "spr_player",
-											"sid": 733303754975482,
-											"parameters": {
-												"instance-variable": "world_y",
-												"value": "TILE_SIZE"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 742664855934149,
+													"parameters": {
+														"key": 40
+													}
+												}
+											],
+											"actions": [],
+											"sid": 619080707759182,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 327166955877346,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y + 1)",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 586042045623739,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 418184165019029,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y + 1",
+																"value": "\"X\""
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_player",
+															"sid": 547786269606708,
+															"parameters": {
+																"instance-variable": "world_y",
+																"value": "TILE_SIZE"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_player",
+															"sid": 834015523800221,
+															"parameters": {
+																"instance-variable": "grid_y",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 681434423498083
+												}
+											]
 										},
 										{
-											"id": "add-to-instvar",
-											"objectClass": "spr_player",
-											"sid": 710314080983682,
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 617285454212499,
+													"parameters": {
+														"key": 39
+													}
+												}
+											],
+											"actions": [],
+											"sid": 297714021559080,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 768966864834498,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x + 1, spr_player.grid_y)",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 639758571542318,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 137241653794033,
+															"parameters": {
+																"x": "spr_player.grid_x + 1",
+																"y": "spr_player.grid_y",
+																"value": "\"X\""
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_player",
+															"sid": 923449744084823,
+															"parameters": {
+																"instance-variable": "world_x",
+																"value": "TILE_SIZE"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_player",
+															"sid": 432578826737911,
+															"parameters": {
+																"instance-variable": "grid_x",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 547370784931677
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Only triggers when an anticucho with that UID exists."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "spr_anticucho",
+											"sid": 785987350775004,
 											"parameters": {
-												"instance-variable": "grid_y",
-												"value": "1"
+												"unique-id": "spr_player.grabbed_anticucho_uid"
 											}
 										}
 									],
-									"sid": 670208295013625
+									"actions": [],
+									"sid": 226281489211289,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "PROGRAM MOVEMENT! Probably will need to remove it from array, loop through each of the new positions to see if it crashes with something, and then return that in a function"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 617839484185292,
+													"parameters": {
+														"key": 38
+													}
+												}
+											],
+											"actions": [],
+											"sid": 773344832418096,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 936658778767780,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y - 1)",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 893127488877645,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 915576358342110,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y - 1",
+																"value": "\"X\""
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_player",
+															"sid": 473306554782305,
+															"parameters": {
+																"instance-variable": "world_y",
+																"value": "TILE_SIZE"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_player",
+															"sid": 440573468580104,
+															"parameters": {
+																"instance-variable": "grid_y",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 355963392174388
+												}
+											]
+										}
+									]
 								}
 							]
 						},
@@ -809,84 +1522,26 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-key-pressed",
+									"id": "on-key-released",
 									"objectClass": "Keyboard",
-									"sid": 320905006125024,
+									"sid": 555368253798503,
 									"parameters": {
-										"key": 39
+										"key": 32
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-animation",
+									"id": "set-instvar-value",
 									"objectClass": "spr_player",
-									"sid": 210321540221384,
+									"sid": 232932368473271,
 									"parameters": {
-										"animation": "\"right\"",
-										"from": "beginning"
+										"instance-variable": "grabbed_anticucho_uid",
+										"value": "-1"
 									}
 								}
 							],
-							"sid": 218799807201948,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 327066899276854,
-											"parameters": {
-												"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x + 1, spr_player.grid_y)",
-												"comparison": 0,
-												"second-value": "\"true\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 300473170167941,
-											"parameters": {
-												"x": "spr_player.grid_x",
-												"y": "spr_player.grid_y",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 371071410530986,
-											"parameters": {
-												"x": "spr_player.grid_x + 1",
-												"y": "spr_player.grid_y",
-												"value": "\"X\""
-											}
-										},
-										{
-											"id": "add-to-instvar",
-											"objectClass": "spr_player",
-											"sid": 954673715643760,
-											"parameters": {
-												"instance-variable": "world_x",
-												"value": "TILE_SIZE"
-											}
-										},
-										{
-											"id": "add-to-instvar",
-											"objectClass": "spr_player",
-											"sid": 483282867612903,
-											"parameters": {
-												"instance-variable": "grid_x",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 771509269164304
-								}
-							]
+							"sid": 462767724077011
 						}
 					]
 				},

@@ -97,7 +97,6 @@
 	},
 	"eventSheets": {
 		"items": [
-			"old_level_code",
 			"eLevel"
 		],
 		"subfolders": []

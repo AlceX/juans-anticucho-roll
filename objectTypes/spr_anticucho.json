@@ -21,6 +21,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 584660906115846
+		},
+		{
+			"name": "grid_positions",
+			"type": "string",
+			"desc": "List in the format \"x, y\" with | separators.",
+			"sid": 357842594349280
 		}
 	],
 	"behaviorTypes": [],

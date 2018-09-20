@@ -1489,7 +1489,8 @@
 					"instanceVariables": {
 						"is_moving": false,
 						"new_x": 0,
-						"new_y": 0
+						"new_y": 0,
+						"grid_positions": ""
 					},
 					"behaviors": {},
 					"world": {
@@ -1558,7 +1559,8 @@
 					"instanceVariables": {
 						"is_moving": false,
 						"new_x": 0,
-						"new_y": 0
+						"new_y": 0,
+						"grid_positions": ""
 					},
 					"behaviors": {},
 					"world": {
@@ -1618,7 +1620,8 @@
 					"instanceVariables": {
 						"is_moving": false,
 						"new_x": 0,
-						"new_y": 0
+						"new_y": 0,
+						"grid_positions": ""
 					},
 					"behaviors": {},
 					"world": {
@@ -1650,7 +1653,8 @@
 					"instanceVariables": {
 						"is_moving": false,
 						"new_x": 0,
-						"new_y": 0
+						"new_y": 0,
+						"grid_positions": ""
 					},
 					"behaviors": {},
 					"world": {
