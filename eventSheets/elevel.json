@@ -1653,6 +1653,214 @@
 													"sid": 999242627947388
 												}
 											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 570010590239679,
+													"parameters": {
+														"key": 40
+													}
+												}
+											],
+											"actions": [],
+											"sid": 558467401400131,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 803288946199224,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y + 1)",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 647130061414217,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"down\")",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 901499701037902,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 286802071772644,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y + 1",
+																"value": "\"X\""
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_player",
+															"sid": 210778054437451,
+															"parameters": {
+																"instance-variable": "world_y",
+																"value": "TILE_SIZE"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_player",
+															"sid": 777668705759740,
+															"parameters": {
+																"instance-variable": "grid_y",
+																"value": "1"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 236240151492742,
+															"parameters": {
+																"name": "\"eLevel/Movement.move_anticucho_in_array\"",
+																"parameter-n": [
+																	"spr_anticucho.UID",
+																	"\"down\""
+																]
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_anticucho",
+															"sid": 433223341863580,
+															"parameters": {
+																"instance-variable": "world_y",
+																"value": "TILE_SIZE"
+															}
+														}
+													],
+													"sid": 192231514530684
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 372096518614188,
+													"parameters": {
+														"key": 39
+													}
+												}
+											],
+											"actions": [],
+											"sid": 159242622038815,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 224321840595461,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x + 1, spr_player.grid_y)",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 743597653004395,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"right\")",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 492097948100543,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 634968027816956,
+															"parameters": {
+																"x": "spr_player.grid_x + 1",
+																"y": "spr_player.grid_y",
+																"value": "\"X\""
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_player",
+															"sid": 386975764001894,
+															"parameters": {
+																"instance-variable": "world_x",
+																"value": "TILE_SIZE"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_player",
+															"sid": 515294641571666,
+															"parameters": {
+																"instance-variable": "grid_x",
+																"value": "1"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 296213352204565,
+															"parameters": {
+																"name": "\"eLevel/Movement.move_anticucho_in_array\"",
+																"parameter-n": [
+																	"spr_anticucho.UID",
+																	"\"right\""
+																]
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "spr_anticucho",
+															"sid": 493976459819090,
+															"parameters": {
+																"instance-variable": "world_x",
+																"value": "TILE_SIZE"
+															}
+														}
+													],
+													"sid": 864992886508795
+												}
+											]
 										}
 									]
 								}
@@ -2438,6 +2646,7 @@
 															"id": "set-text",
 															"objectClass": "debug_text",
 															"sid": 969627310899125,
+															"disabled": true,
 															"parameters": {
 																"text": "\"(\" & x & \",\" & y & \")\""
 															}
@@ -2474,6 +2683,495 @@
 														}
 													],
 													"sid": 145942278848373
+												}
+											],
+											"isOrBlock": true
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 705216096158679,
+											"parameters": {
+												"variable": "dir",
+												"comparison": 0,
+												"value": "\"down\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 191900872426189,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-within-angle",
+													"objectClass": "spr_anticucho",
+													"sid": 181311629580471,
+													"parameters": {
+														"within": "0.5",
+														"angle": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 145556933384958,
+													"parameters": {
+														"variable": "x",
+														"value": "int(tokenat(tokenat(positions, size - 1, \"|\"), 0, \",\"))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 501160615171323,
+													"parameters": {
+														"variable": "y",
+														"value": "int(tokenat(tokenat(positions, size - 1, \"|\"), 1, \",\"))"
+													}
+												}
+											],
+											"sid": 271328192854182,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 743235599413160,
+															"parameters": {
+																"x": "x",
+																"y": "y + 1",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 280907807903330,
+															"parameters": {
+																"value": "y + 1",
+																"lower-bound": "0",
+																"upper-bound": "arr_board_state.Height - 1"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 724157446305471,
+															"parameters": {
+																"value": "\"false\""
+															}
+														}
+													],
+													"sid": 856534386075462,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 979972222355850
+														}
+													],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 842850060347829,
+															"parameters": {
+																"value": "\"true\""
+															}
+														}
+													],
+													"sid": 643511785415590
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-within-angle",
+													"objectClass": "spr_anticucho",
+													"sid": 635552439316921,
+													"parameters": {
+														"within": "0.5",
+														"angle": "90"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 327406780692437,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "return",
+													"type": "string",
+													"initialValue": "true",
+													"comment": "True until proven false.",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 926027779211178
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for",
+															"objectClass": "System",
+															"sid": 847115671790845,
+															"parameters": {
+																"name": "\"\"",
+																"start-index": "0",
+																"end-index": "tokencount(positions, \"|\") - 1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 108147751222696,
+															"parameters": {
+																"variable": "x",
+																"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\"))"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 772563650415644,
+															"parameters": {
+																"variable": "y",
+																"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\"))"
+															}
+														}
+													],
+													"sid": 314892396015272,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-at-xy",
+																	"objectClass": "arr_board_state",
+																	"sid": 382916529541908,
+																	"parameters": {
+																		"x": "x",
+																		"y": "y + 1",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "is-between-values",
+																	"objectClass": "System",
+																	"sid": 917976499948436,
+																	"parameters": {
+																		"value": "y + 1",
+																		"lower-bound": "0",
+																		"upper-bound": "arr_board_state.Height- 1"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 419636679089804,
+																	"parameters": {
+																		"variable": "return",
+																		"value": "\"false\""
+																	}
+																}
+															],
+															"sid": 709447962447546,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 756452191321749,
+															"parameters": {
+																"value": "return"
+															}
+														}
+													],
+													"sid": 817623942091352
+												}
+											],
+											"isOrBlock": true
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 603308539349887,
+											"parameters": {
+												"variable": "dir",
+												"comparison": 0,
+												"value": "\"right\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 829751162284304,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-within-angle",
+													"objectClass": "spr_anticucho",
+													"sid": 283018992463261,
+													"parameters": {
+														"within": "0.5",
+														"angle": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 392110123131909,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "return",
+													"type": "string",
+													"initialValue": "true",
+													"comment": "True until proven false.",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 758649376126836
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for",
+															"objectClass": "System",
+															"sid": 360479534179827,
+															"parameters": {
+																"name": "\"\"",
+																"start-index": "0",
+																"end-index": "tokencount(positions, \"|\") - 1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 857946867092500,
+															"parameters": {
+																"variable": "x",
+																"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\"))"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 444426653834230,
+															"parameters": {
+																"variable": "y",
+																"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\"))"
+															}
+														}
+													],
+													"sid": 379767504354820,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-at-xy",
+																	"objectClass": "arr_board_state",
+																	"sid": 230112794545160,
+																	"parameters": {
+																		"x": "x + 1",
+																		"y": "y",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "is-between-values",
+																	"objectClass": "System",
+																	"sid": 596754202898586,
+																	"parameters": {
+																		"value": "x + 1",
+																		"lower-bound": "0",
+																		"upper-bound": "arr_board_state.Width - 1"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 955126267574153,
+																	"parameters": {
+																		"variable": "return",
+																		"value": "\"false\""
+																	}
+																}
+															],
+															"sid": 452178681845208,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 768065570939041,
+															"parameters": {
+																"value": "return"
+															}
+														}
+													],
+													"sid": 801681097336951
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-within-angle",
+													"objectClass": "spr_anticucho",
+													"sid": 529199503269216,
+													"parameters": {
+														"within": "0.5",
+														"angle": "90"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 554324889007665,
+													"parameters": {
+														"variable": "x",
+														"value": "int(tokenat(tokenat(positions, 0, \"|\"), 0, \",\"))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 512238468526904,
+													"parameters": {
+														"variable": "y",
+														"value": "int(tokenat(tokenat(positions, 0, \"|\"), 1, \",\"))"
+													}
+												}
+											],
+											"sid": 557930234278978,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 119580308281647,
+															"parameters": {
+																"x": "x + 1",
+																"y": "y",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 241992849528059,
+															"parameters": {
+																"value": "x + 1",
+																"lower-bound": "0",
+																"upper-bound": "arr_board_state.Width - 1"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "debug_text",
+															"sid": 654559302857139,
+															"disabled": true,
+															"parameters": {
+																"text": "\"(\" & x & \",\" & y & \")\""
+															}
+														},
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 385337646966694,
+															"parameters": {
+																"value": "\"false\""
+															}
+														}
+													],
+													"sid": 591116365266003,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 772855202574442
+														}
+													],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 317249548755954,
+															"parameters": {
+																"value": "\"true\""
+															}
+														}
+													],
+													"sid": 738804385986990
 												}
 											],
 											"isOrBlock": true
@@ -2771,6 +3469,178 @@
 												}
 											],
 											"sid": 189802355425425
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 383852597927373,
+											"parameters": {
+												"variable": "dir",
+												"comparison": 0,
+												"value": "\"down\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 434517296768929,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "I check them in reverse order to not overwrite the ones I've changed."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 358334558671690,
+													"parameters": {
+														"name": "\"\"",
+														"start-index": "0",
+														"end-index": "size - 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 861620292979146,
+													"parameters": {
+														"variable": "x",
+														"value": "tokenat(tokenat(positions, size - 1 - loopindex, \"|\"), 0, \",\")"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 876933852049075,
+													"parameters": {
+														"variable": "y",
+														"value": "tokenat(tokenat(positions, size - 1 - loopindex, \"|\"), 1, \",\")"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 591613954340871,
+													"parameters": {
+														"x": "x",
+														"y": "y",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 669039637720251,
+													"parameters": {
+														"x": "x",
+														"y": "y + 1",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "spr_anticucho",
+													"sid": 664100461990505,
+													"parameters": {
+														"instance-variable": "grid_positions",
+														"value": "x & \",\" & (y + 1) &  \"|\" & Self.grid_positions"
+													}
+												}
+											],
+											"sid": 327778701297618
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 443499393122606,
+											"parameters": {
+												"variable": "dir",
+												"comparison": 0,
+												"value": "\"right\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 103502020099535,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 996487878643438,
+													"parameters": {
+														"name": "\"\"",
+														"start-index": "0",
+														"end-index": "size - 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 532778902059429,
+													"parameters": {
+														"variable": "x",
+														"value": "tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\")"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 951036891662238,
+													"parameters": {
+														"variable": "y",
+														"value": "tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\")"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 813651883599245,
+													"parameters": {
+														"x": "x",
+														"y": "y",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 433862778922162,
+													"parameters": {
+														"x": "x + 1",
+														"y": "y",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "spr_anticucho",
+													"sid": 639396963765236,
+													"parameters": {
+														"instance-variable": "grid_positions",
+														"value": "Self.grid_positions & (x + 1) & \",\" & y & \"|\""
+													}
+												}
+											],
+											"sid": 522903248373219
 										}
 									]
 								},
