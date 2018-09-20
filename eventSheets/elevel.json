@@ -1494,16 +1494,7 @@
 													}
 												}
 											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "debug_text",
-													"sid": 565766969639121,
-													"parameters": {
-														"text": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y - 1) & newline & Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"up\") & newline & round(time)"
-													}
-												}
-											],
+											"actions": [],
 											"sid": 773344832418096,
 											"children": [
 												{
@@ -1592,6 +1583,110 @@
 														}
 													],
 													"sid": 355963392174388
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 377628134698398,
+													"parameters": {
+														"key": 37
+													}
+												}
+											],
+											"actions": [],
+											"sid": 593554762531576,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 691250089052828,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x - 1, spr_player.grid_y)",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 133874811847962,
+															"parameters": {
+																"first-value": "Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"left\")",
+																"comparison": 0,
+																"second-value": "\"true\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 339140809585914,
+															"parameters": {
+																"x": "spr_player.grid_x",
+																"y": "spr_player.grid_y",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 402105855252126,
+															"parameters": {
+																"x": "spr_player.grid_x - 1",
+																"y": "spr_player.grid_y",
+																"value": "\"X\""
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_player",
+															"sid": 813454257695343,
+															"parameters": {
+																"instance-variable": "world_x",
+																"value": "TILE_SIZE"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_player",
+															"sid": 493709023713421,
+															"parameters": {
+																"instance-variable": "grid_x",
+																"value": "1"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "Function",
+															"sid": 276757637819100,
+															"parameters": {
+																"name": "\"eLevel/Movement.move_anticucho_in_array\"",
+																"parameter-n": [
+																	"spr_anticucho.UID",
+																	"\"left\""
+																]
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "spr_anticucho",
+															"sid": 469459167389763,
+															"parameters": {
+																"instance-variable": "world_x",
+																"value": "TILE_SIZE"
+															}
+														}
+													],
+													"sid": 999242627947388
 												}
 											]
 										}
@@ -1973,66 +2068,37 @@
 														{
 															"id": "compare-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 360764365823638,
+															"sid": 453576329410365,
 															"parameters": {
 																"x": "x",
 																"y": "y - 1",
 																"comparison": 0,
-																"value": "0"
+																"value": "1"
 															}
 														},
 														{
-															"id": "compare-at-xy",
-															"objectClass": "arr_board_state",
-															"sid": 320207125470380,
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 712698700796124,
 															"parameters": {
-																"x": "x",
-																"y": "y - 1",
-																"comparison": 0,
-																"value": "\"X\""
+																"value": "y - 1",
+																"lower-bound": "0",
+																"upper-bound": "arr_board_state.Height - 1"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 430311141610691,
+															"parameters": {
+																"value": "\"false\""
 															}
 														}
 													],
-													"actions": [],
 													"sid": 299744628111589,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-between-values",
-																	"objectClass": "System",
-																	"sid": 376568346442502,
-																	"parameters": {
-																		"value": "x",
-																		"lower-bound": "0",
-																		"upper-bound": "arr_board_state.Width - 1"
-																	}
-																},
-																{
-																	"id": "is-between-values",
-																	"objectClass": "System",
-																	"sid": 415118095641375,
-																	"parameters": {
-																		"value": "y",
-																		"lower-bound": "0",
-																		"upper-bound": "arr_board_state.Height - 1"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-return-value",
-																	"objectClass": "Function",
-																	"sid": 258021599647084,
-																	"parameters": {
-																		"value": "\"true\""
-																	}
-																}
-															],
-															"sid": 693701733474234
-														}
-													],
 													"isOrBlock": true
 												},
 												{
@@ -2048,13 +2114,155 @@
 														{
 															"id": "set-return-value",
 															"objectClass": "Function",
-															"sid": 533172954996473,
+															"sid": 682867686460178,
 															"parameters": {
-																"value": "\"false\""
+																"value": "\"true\""
 															}
 														}
 													],
 													"sid": 915737804212793
+												}
+											],
+											"isOrBlock": true
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 512878473461343,
+											"parameters": {
+												"variable": "dir",
+												"comparison": 0,
+												"value": "\"left\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 310547716527212,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-within-angle",
+													"objectClass": "spr_anticucho",
+													"sid": 758413914276228,
+													"parameters": {
+														"within": "0.5",
+														"angle": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 132621537315296,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "return",
+													"type": "string",
+													"initialValue": "true",
+													"comment": "True until proven false.",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 339030996807800
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for",
+															"objectClass": "System",
+															"sid": 961470401475418,
+															"parameters": {
+																"name": "\"\"",
+																"start-index": "0",
+																"end-index": "tokencount(positions, \"|\") - 1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 446690979932732,
+															"parameters": {
+																"variable": "x",
+																"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\"))"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 327001580139675,
+															"parameters": {
+																"variable": "y",
+																"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\"))"
+															}
+														}
+													],
+													"sid": 595911616174959,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-at-xy",
+																	"objectClass": "arr_board_state",
+																	"sid": 949696657305437,
+																	"parameters": {
+																		"x": "x - 1",
+																		"y": "y",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "is-between-values",
+																	"objectClass": "System",
+																	"sid": 682355108198130,
+																	"parameters": {
+																		"value": "x - 1",
+																		"lower-bound": "0",
+																		"upper-bound": "arr_board_state.Width - 1"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 969984472511929,
+																	"parameters": {
+																		"variable": "return",
+																		"value": "\"false\""
+																	}
+																}
+															],
+															"sid": 941588972737676,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 229884672658539,
+															"parameters": {
+																"value": "return"
+															}
+														}
+													],
+													"sid": 314386863685761
 												}
 											],
 											"isOrBlock": true
@@ -2245,6 +2453,90 @@
 												}
 											],
 											"sid": 947303698577646
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 285897064442256,
+											"parameters": {
+												"variable": "dir",
+												"comparison": 0,
+												"value": "\"left\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 180063397362493,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 225550576848650,
+													"parameters": {
+														"name": "\"\"",
+														"start-index": "0",
+														"end-index": "tokencount(positions, \"|\") - 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 279323812277570,
+													"parameters": {
+														"variable": "x",
+														"value": "tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\")"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 739388300689445,
+													"parameters": {
+														"variable": "y",
+														"value": "tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\")"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 492718141086236,
+													"parameters": {
+														"x": "x",
+														"y": "y",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "arr_board_state",
+													"sid": 255355949904276,
+													"parameters": {
+														"x": "x - 1",
+														"y": "y",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "spr_anticucho",
+													"sid": 964395600219639,
+													"parameters": {
+														"instance-variable": "grid_positions",
+														"value": "Self.grid_positions & (x - 1) & \",\" & y & \"|\""
+													}
+												}
+											],
+											"sid": 189802355425425
 										}
 									]
 								},
