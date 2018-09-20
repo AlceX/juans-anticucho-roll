@@ -129,15 +129,6 @@
 												"within": "0.5",
 												"angle": "90"
 											}
-										},
-										{
-											"id": "is-within-angle",
-											"objectClass": "spr_anticucho",
-											"sid": 567183745984265,
-											"parameters": {
-												"within": "0.5",
-												"angle": "180"
-											}
 										}
 									],
 									"actions": [
@@ -152,42 +143,6 @@
 										}
 									],
 									"sid": 460500698685832,
-									"isOrBlock": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-within-angle",
-											"objectClass": "spr_anticucho",
-											"sid": 481414146294703,
-											"parameters": {
-												"within": "0.5",
-												"angle": "270"
-											}
-										},
-										{
-											"id": "is-within-angle",
-											"objectClass": "spr_anticucho",
-											"sid": 767246370401275,
-											"parameters": {
-												"within": "0.5",
-												"angle": "180"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-eventvar",
-											"objectClass": "System",
-											"sid": 315110381098420,
-											"parameters": {
-												"variable": "y",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 240940651944027,
 									"isOrBlock": true
 								},
 								{
@@ -238,15 +193,6 @@
 														"within": "0.5",
 														"angle": "0"
 													}
-												},
-												{
-													"id": "is-within-angle",
-													"objectClass": "spr_anticucho",
-													"sid": 259717045178800,
-													"parameters": {
-														"within": "0.5",
-														"angle": "180"
-													}
 												}
 											],
 											"actions": [
@@ -273,15 +219,6 @@
 													"parameters": {
 														"within": "0.5",
 														"angle": "90"
-													}
-												},
-												{
-													"id": "is-within-angle",
-													"objectClass": "spr_anticucho",
-													"sid": 881714090863993,
-													"parameters": {
-														"within": "0.5",
-														"angle": "270"
 													}
 												}
 											],
@@ -591,28 +528,45 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
+							"id": "for-each",
 							"objectClass": "System",
-							"sid": 221341922417706,
+							"sid": 445596100717349,
 							"parameters": {
-								"first-value": "distance(spr_anticucho.X, spr_anticucho.Y, spr_anticucho.world_x, spr_anticucho.world_y)",
-								"comparison": 4,
-								"second-value": "1"
+								"object": "spr_anticucho"
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 144324202696194,
+					"children": [
 						{
-							"id": "set-position",
-							"objectClass": "spr_anticucho",
-							"sid": 600411613981647,
-							"parameters": {
-								"x": "lerp(Self.X, Self.world_x, 0.35)",
-								"y": "lerp(Self.Y, Self.world_y, 0.35)"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 781083195773131,
+									"parameters": {
+										"first-value": "distance(spr_anticucho.X, spr_anticucho.Y, spr_anticucho.world_x, spr_anticucho.world_y)",
+										"comparison": 4,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "spr_anticucho",
+									"sid": 130329406633916,
+									"parameters": {
+										"x": "lerp(Self.X, Self.world_x, 0.35)",
+										"y": "lerp(Self.Y, Self.world_y, 0.35)"
+									}
+								}
+							],
+							"sid": 316627924550213
 						}
-					],
-					"sid": 819930973849777
+					]
 				},
 				{
 					"eventType": "block",
@@ -1598,7 +1552,17 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "debug_text",
+													"sid": 662402031519460,
+													"disabled": true,
+													"parameters": {
+														"text": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x - 1, spr_player.grid_y) & newline & Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"left\") & newline & round(time)"
+													}
+												}
+											],
 											"sid": 593554762531576,
 											"children": [
 												{
@@ -1977,6 +1941,16 @@
 							"sid": 716882983499679
 						},
 						{
+							"eventType": "variable",
+							"name": "size",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 381550086662932
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -2005,6 +1979,15 @@
 									"parameters": {
 										"variable": "positions",
 										"value": "spr_anticucho.grid_positions"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 109678365337225,
+									"parameters": {
+										"variable": "size",
+										"value": "tokencount(spr_anticucho.grid_positions, \"|\")"
 									}
 								}
 							],
@@ -2121,6 +2104,128 @@
 														}
 													],
 													"sid": 915737804212793
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-within-angle",
+													"objectClass": "spr_anticucho",
+													"sid": 460233227627648,
+													"parameters": {
+														"within": "0.5",
+														"angle": "90"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 890205205681587,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "return",
+													"type": "string",
+													"initialValue": "true",
+													"comment": "True until proven false.",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 864768277321150
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for",
+															"objectClass": "System",
+															"sid": 241549779421910,
+															"parameters": {
+																"name": "\"\"",
+																"start-index": "0",
+																"end-index": "tokencount(positions, \"|\") - 1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 175411929078170,
+															"parameters": {
+																"variable": "x",
+																"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\"))"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 867813014171498,
+															"parameters": {
+																"variable": "y",
+																"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\"))"
+															}
+														}
+													],
+													"sid": 249162699177416,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-at-xy",
+																	"objectClass": "arr_board_state",
+																	"sid": 941334308989651,
+																	"parameters": {
+																		"x": "x",
+																		"y": "y - 1",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "is-between-values",
+																	"objectClass": "System",
+																	"sid": 596099797849173,
+																	"parameters": {
+																		"value": "y - 1",
+																		"lower-bound": "0",
+																		"upper-bound": "arr_board_state.Height- 1"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 352236251778083,
+																	"parameters": {
+																		"variable": "return",
+																		"value": "\"false\""
+																	}
+																}
+															],
+															"sid": 119117215315173,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 615127124285568,
+															"parameters": {
+																"value": "return"
+															}
+														}
+													],
+													"sid": 862996347641088
 												}
 											],
 											"isOrBlock": true
@@ -2266,6 +2371,112 @@
 												}
 											],
 											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-within-angle",
+													"objectClass": "spr_anticucho",
+													"sid": 223546820090962,
+													"parameters": {
+														"within": "0.5",
+														"angle": "90"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 411349172725998,
+													"parameters": {
+														"variable": "x",
+														"value": "int(tokenat(tokenat(positions, size - 1, \"|\"), 0, \",\"))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 647922443822438,
+													"parameters": {
+														"variable": "y",
+														"value": "int(tokenat(tokenat(positions, size - 1, \"|\"), 1, \",\"))"
+													}
+												}
+											],
+											"sid": 291622993750141,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-xy",
+															"objectClass": "arr_board_state",
+															"sid": 838853350710651,
+															"parameters": {
+																"x": "x - 1",
+																"y": "y",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 358507168821999,
+															"parameters": {
+																"value": "x - 1",
+																"lower-bound": "0",
+																"upper-bound": "arr_board_state.Width - 1"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "debug_text",
+															"sid": 969627310899125,
+															"parameters": {
+																"text": "\"(\" & x & \",\" & y & \")\""
+															}
+														},
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 744026692286099,
+															"parameters": {
+																"value": "\"false\""
+															}
+														}
+													],
+													"sid": 443434723860426,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 389616712663876
+														}
+													],
+													"actions": [
+														{
+															"id": "set-return-value",
+															"objectClass": "Function",
+															"sid": 764950154797913,
+															"parameters": {
+																"value": "\"true\""
+															}
+														}
+													],
+													"sid": 145942278848373
+												}
+											],
+											"isOrBlock": true
 										}
 									],
 									"isOrBlock": true
@@ -2327,7 +2538,17 @@
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 139181343910053
+							"sid": 740232981182227
+						},
+						{
+							"eventType": "variable",
+							"name": "size",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 870470286459661
 						},
 						{
 							"eventType": "block",
@@ -2349,6 +2570,15 @@
 									"parameters": {
 										"variable": "dir",
 										"value": "Function.Param(1)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 532378071714912,
+									"parameters": {
+										"variable": "size",
+										"value": "tokencount(spr_anticucho.grid_positions, \"|\")"
 									}
 								},
 								{
@@ -2395,11 +2625,11 @@
 												{
 													"id": "for",
 													"objectClass": "System",
-													"sid": 303339000602997,
+													"sid": 963489497109768,
 													"parameters": {
 														"name": "\"\"",
 														"start-index": "0",
-														"end-index": "tokencount(positions, \"|\") - 1"
+														"end-index": "size - 1"
 													}
 												}
 											],
@@ -2474,16 +2704,20 @@
 									"sid": 180063397362493,
 									"children": [
 										{
+											"eventType": "comment",
+											"text": "I check them in reverse order to not overwrite the ones I've changed."
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "for",
 													"objectClass": "System",
-													"sid": 225550576848650,
+													"sid": 685619230679851,
 													"parameters": {
 														"name": "\"\"",
 														"start-index": "0",
-														"end-index": "tokencount(positions, \"|\") - 1"
+														"end-index": "size - 1"
 													}
 												}
 											],
@@ -2491,19 +2725,19 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 279323812277570,
+													"sid": 549379634182442,
 													"parameters": {
 														"variable": "x",
-														"value": "tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\")"
+														"value": "tokenat(tokenat(positions, size - 1 - loopindex, \"|\"), 0, \",\")"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 739388300689445,
+													"sid": 693122805911151,
 													"parameters": {
 														"variable": "y",
-														"value": "tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\")"
+														"value": "tokenat(tokenat(positions, size - 1 - loopindex, \"|\"), 1, \",\")"
 													}
 												},
 												{
@@ -2529,10 +2763,10 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "spr_anticucho",
-													"sid": 964395600219639,
+													"sid": 752623457411197,
 													"parameters": {
 														"instance-variable": "grid_positions",
-														"value": "Self.grid_positions & (x - 1) & \",\" & y & \"|\""
+														"value": "(x - 1) & \",\" & y &  \"|\" & Self.grid_positions"
 													}
 												}
 											],
@@ -2547,7 +2781,7 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "spr_anticucho",
-											"sid": 647679306150144,
+											"sid": 240390122940107,
 											"parameters": {
 												"instance-variable": "grid_positions",
 												"value": "left(Self.grid_positions, len(Self.grid_positions) - 1)"
