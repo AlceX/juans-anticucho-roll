@@ -4303,12 +4303,13 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-animation-frame",
+											"id": "compare-instance-variable",
 											"objectClass": "spr_anticucho",
-											"sid": 137634069132435,
+											"sid": 632346713155341,
 											"parameters": {
+												"instance-variable": "side",
 												"comparison": 0,
-												"number": "0"
+												"value": "\"A\""
 											}
 										}
 									],
@@ -4319,6 +4320,15 @@
 											"sid": 446008248411292,
 											"parameters": {
 												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_anticucho",
+											"sid": 368343295117106,
+											"parameters": {
+												"instance-variable": "side",
+												"value": "\"B\""
 											}
 										}
 									],
@@ -4341,6 +4351,15 @@
 											"parameters": {
 												"frame-number": "0"
 											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_anticucho",
+											"sid": 704438813005317,
+											"parameters": {
+												"instance-variable": "side",
+												"value": "\"A\""
+											}
 										}
 									],
 									"sid": 140440773931952
@@ -4351,6 +4370,101 @@
 				}
 			],
 			"sid": 341924505859066
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "eLevel/Cooking",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 508149353796826,
+							"parameters": {
+								"object": "spr_anticucho"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 654936357212501,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-within-angle",
+									"objectClass": "spr_anticucho",
+									"sid": 960465407200212,
+									"parameters": {
+										"within": "0.5",
+										"angle": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_a",
+									"sid": 963868516884177,
+									"parameters": {
+										"x": "spr_anticucho.X + spr_anticucho.Width",
+										"y": "spr_anticucho.Y"
+									}
+								}
+							],
+							"sid": 483430355800089
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-within-angle",
+									"objectClass": "spr_anticucho",
+									"sid": 513548443426786,
+									"parameters": {
+										"within": "0.5",
+										"angle": "90"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_a",
+									"sid": 441313271344752,
+									"parameters": {
+										"x": "spr_anticucho.X - 10",
+										"y": "spr_anticucho.Y - 10"
+									}
+								}
+							],
+							"sid": 440048882546897
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_b",
+									"sid": 738764734625966,
+									"parameters": {
+										"x": "bar_anticucho_a.X",
+										"y": "bar_anticucho_a.Y + Self.Height * 1.1"
+									}
+								}
+							],
+							"sid": 622639707478053
+						}
+					]
+				}
+			],
+			"sid": 211698844447990
 		},
 		{
 			"eventType": "group",

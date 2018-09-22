@@ -21,6 +21,12 @@
 			"type": "string",
 			"desc": "List in the format \"x, y\" with | separators.",
 			"sid": 357842594349280
+		},
+		{
+			"name": "side",
+			"type": "string",
+			"desc": "Side that's currently facing upwards. Can be \"A\" or \"B\".",
+			"sid": 693873125959364
 		}
 	],
 	"behaviorTypes": [],

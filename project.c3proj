@@ -40,6 +40,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "progressbar",
+			"name": "Progress bar",
+			"author": "Scirra",
+			"version": "r111",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Arr",
 			"name": "Array",
 			"author": "Scirra",
@@ -59,7 +67,6 @@
 	"objectTypes": {
 		"items": [
 			"spr_player",
-			"spr_anticucho",
 			"arr_board_state",
 			"spr_player_hands"
 		],
@@ -87,6 +94,15 @@
 				],
 				"subfolders": [],
 				"name": "Debug"
+			},
+			{
+				"items": [
+					"bar_anticucho_a",
+					"bar_anticucho_b",
+					"spr_anticucho"
+				],
+				"subfolders": [],
+				"name": "Anticucho"
 			}
 		]
 	},
@@ -96,6 +112,14 @@
 			"members": [
 				"spr_player",
 				"spr_player_hands"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"bar_anticucho_a",
+				"bar_anticucho_b",
+				"spr_anticucho"
 			],
 			"selectMode": "normal"
 		}

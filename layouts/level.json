@@ -1489,7 +1489,8 @@
 					"instanceVariables": {
 						"world_x": 0,
 						"world_y": 0,
-						"grid_positions": ""
+						"grid_positions": "",
+						"side": "\"A\""
 					},
 					"behaviors": {},
 					"world": {
@@ -1558,7 +1559,8 @@
 					"instanceVariables": {
 						"world_x": 0,
 						"world_y": 0,
-						"grid_positions": ""
+						"grid_positions": "",
+						"side": "\"A\""
 					},
 					"behaviors": {},
 					"world": {
@@ -1590,7 +1592,8 @@
 					"instanceVariables": {
 						"world_x": 0,
 						"world_y": 0,
-						"grid_positions": ""
+						"grid_positions": "",
+						"side": "\"A\""
 					},
 					"behaviors": {},
 					"world": {
@@ -1622,7 +1625,8 @@
 					"instanceVariables": {
 						"world_x": 0,
 						"world_y": 0,
-						"grid_positions": ""
+						"grid_positions": "",
+						"side": "\"A\""
 					},
 					"behaviors": {},
 					"world": {
@@ -1704,6 +1708,60 @@
 							1
 						],
 						"angle": 0
+					}
+				},
+				{
+					"type": "bar_anticucho_a",
+					"properties": {
+						"value": 0,
+						"maximum": 10,
+						"tooltip": "",
+						"initially-visible": true,
+						"id": ""
+					},
+					"uid": 61,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 550,
+						"y": 71,
+						"width": 60,
+						"height": 13,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "bar_anticucho_b",
+					"properties": {
+						"value": 0,
+						"maximum": 10,
+						"tooltip": "",
+						"initially-visible": true,
+						"id": ""
+					},
+					"uid": 62,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 550,
+						"y": 85,
+						"width": 60,
+						"height": 13,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
 					}
 				}
 			],
