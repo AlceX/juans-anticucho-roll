@@ -60,7 +60,8 @@
 		"items": [
 			"spr_player",
 			"spr_anticucho",
-			"arr_board_state"
+			"arr_board_state",
+			"spr_player_hands"
 		],
 		"subfolders": [
 			{
@@ -90,7 +91,15 @@
 		]
 	},
 	"autosaveData": null,
-	"containers": [],
+	"containers": [
+		{
+			"members": [
+				"spr_player",
+				"spr_player_hands"
+			],
+			"selectMode": "normal"
+		}
+	],
 	"families": {
 		"items": [],
 		"subfolders": []

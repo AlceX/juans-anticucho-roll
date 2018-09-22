@@ -490,6 +490,28 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 847786068689578
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "spr_player_hands",
+							"sid": 747720498486666,
+							"parameters": {
+								"object": "spr_player",
+								"image-point-optional": "0"
+							}
+						}
+					],
+					"sid": 343585323569160
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
 							"sid": 549466962069947
@@ -653,6 +675,10 @@
 							"sid": 246434873575967,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Have to leave animations with the player although they're all identical since it's my way of checking where the character is looking"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -672,6 +698,24 @@
 											"parameters": {
 												"animation": "\"up\"",
 												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "spr_player_hands",
+											"sid": 940713873413125,
+											"parameters": {
+												"animation": "\"both\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "spr_player_hands",
+											"sid": 858508957600394,
+											"parameters": {
+												"where": "behind",
+												"object": "spr_player"
 											}
 										}
 									],
@@ -756,6 +800,24 @@
 												"animation": "\"left\"",
 												"from": "beginning"
 											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "spr_player_hands",
+											"sid": 188496811193651,
+											"parameters": {
+												"animation": "\"left\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "spr_player_hands",
+											"sid": 824272219775433,
+											"parameters": {
+												"where": "in-front",
+												"object": "spr_player"
+											}
 										}
 									],
 									"sid": 250772054006956,
@@ -839,6 +901,24 @@
 												"animation": "\"down\"",
 												"from": "beginning"
 											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "spr_player_hands",
+											"sid": 994586150874499,
+											"parameters": {
+												"animation": "\"both\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "spr_player_hands",
+											"sid": 307648463449864,
+											"parameters": {
+												"where": "in-front",
+												"object": "spr_player"
+											}
 										}
 									],
 									"sid": 536997884261939,
@@ -921,6 +1001,24 @@
 											"parameters": {
 												"animation": "\"right\"",
 												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "spr_player_hands",
+											"sid": 639438777109905,
+											"parameters": {
+												"animation": "\"right\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "spr_player_hands",
+											"sid": 680767219186657,
+											"parameters": {
+												"where": "in-front",
+												"object": "spr_player"
 											}
 										}
 									],
