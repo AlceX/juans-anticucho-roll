@@ -426,6 +426,54 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "eLevel/Animations",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 172877468404092
+						}
+					],
+					"actions": [],
+					"sid": 465765693179323,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 328699103411182,
+									"parameters": {
+										"object": "spr_fire"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-speed",
+									"objectClass": "spr_fire",
+									"sid": 230376344673752,
+									"parameters": {
+										"speed": "round(random(5,10))"
+									}
+								}
+							],
+							"sid": 157254766146005
+						}
+					]
+				}
+			],
+			"sid": 497267162338367
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "eLevel/Movement",
 			"description": "",
 			"isActiveOnStart": true,
@@ -4045,7 +4093,7 @@
 			"disabled": false,
 			"title": "eLevel/Debug",
 			"description": "",
-			"isActiveOnStart": true,
+			"isActiveOnStart": false,
 			"children": [
 				{
 					"eventType": "block",
