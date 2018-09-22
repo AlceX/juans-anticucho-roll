@@ -475,6 +475,217 @@
 							"sid": 157254766146005
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 511712209540847,
+							"parameters": {
+								"object": "spr_anticucho"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 284472335982374,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_anticucho",
+									"sid": 799373560851977,
+									"parameters": {
+										"instance-variable": "side",
+										"comparison": 0,
+										"value": "\"A\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 504531824739416,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 346554618412372,
+											"parameters": {
+												"value": "bar_anticucho_a.Progress",
+												"lower-bound": "0",
+												"upper-bound": "0.5 * bar_anticucho_a.Maximum"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "spr_anticucho",
+											"sid": 688363841774637,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 903043956177871
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 103484448202829,
+											"parameters": {
+												"value": "bar_anticucho_a.Progress",
+												"lower-bound": "0.5 * bar_anticucho_a.Maximum",
+												"upper-bound": "0.9 * bar_anticucho_a.Maximum"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "spr_anticucho",
+											"sid": 635001081292358,
+											"parameters": {
+												"frame-number": "2"
+											}
+										}
+									],
+									"sid": 371471413266523
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 419749729669604,
+											"parameters": {
+												"first-value": "bar_anticucho_a.Progress",
+												"comparison": 4,
+												"second-value": "0.9 * bar_anticucho_a.Maximum"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "spr_anticucho",
+											"sid": 204489799522280,
+											"parameters": {
+												"frame-number": "4"
+											}
+										}
+									],
+									"sid": 452984473576855
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_anticucho",
+									"sid": 554941780784541,
+									"parameters": {
+										"instance-variable": "side",
+										"comparison": 0,
+										"value": "\"B\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 652646251428918,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 534337302597955,
+											"parameters": {
+												"value": "bar_anticucho_b.Progress",
+												"lower-bound": "0",
+												"upper-bound": "0.5 * bar_anticucho_b.Maximum"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "spr_anticucho",
+											"sid": 585766066990380,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 756868061911876
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 799996090361126,
+											"parameters": {
+												"value": "bar_anticucho_b.Progress",
+												"lower-bound": "0.5 * bar_anticucho_b.Maximum",
+												"upper-bound": "0.9 * bar_anticucho_b.Maximum"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "spr_anticucho",
+											"sid": 888502651488947,
+											"parameters": {
+												"frame-number": "3"
+											}
+										}
+									],
+									"sid": 479598666756857
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 946372904815306,
+											"parameters": {
+												"first-value": "bar_anticucho_b.Progress",
+												"comparison": 4,
+												"second-value": "0.9 * bar_anticucho_b.Maximum"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "spr_anticucho",
+											"sid": 572470951713825,
+											"parameters": {
+												"frame-number": "5"
+											}
+										}
+									],
+									"sid": 866939875759920
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 497267162338367
@@ -4315,14 +4526,6 @@
 									],
 									"actions": [
 										{
-											"id": "set-animation-frame",
-											"objectClass": "spr_anticucho",
-											"sid": 446008248411292,
-											"parameters": {
-												"frame-number": "1"
-											}
-										},
-										{
 											"id": "set-instvar-value",
 											"objectClass": "spr_anticucho",
 											"sid": 368343295117106,
@@ -4344,14 +4547,6 @@
 										}
 									],
 									"actions": [
-										{
-											"id": "set-animation-frame",
-											"objectClass": "spr_anticucho",
-											"sid": 286323497519464,
-											"parameters": {
-												"frame-number": "0"
-											}
-										},
 										{
 											"id": "set-instvar-value",
 											"objectClass": "spr_anticucho",
@@ -4394,6 +4589,26 @@
 					"sid": 654936357212501,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "top_bar_x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 322110948376162
+						},
+						{
+							"eventType": "variable",
+							"name": "top_bar_y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 117044175852749
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -4408,12 +4623,21 @@
 							],
 							"actions": [
 								{
-									"id": "set-position",
-									"objectClass": "bar_anticucho_a",
-									"sid": 963868516884177,
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 815039232148868,
 									"parameters": {
-										"x": "spr_anticucho.X + spr_anticucho.Width",
-										"y": "spr_anticucho.Y"
+										"variable": "top_bar_x",
+										"value": "spr_anticucho.X + bar_anticucho_a.Width / 2"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 879833947319393,
+									"parameters": {
+										"variable": "top_bar_y",
+										"value": "spr_anticucho.Y"
 									}
 								}
 							],
@@ -4434,12 +4658,21 @@
 							],
 							"actions": [
 								{
-									"id": "set-position",
-									"objectClass": "bar_anticucho_a",
-									"sid": 441313271344752,
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 690058080949854,
 									"parameters": {
-										"x": "spr_anticucho.X - 10",
-										"y": "spr_anticucho.Y - 10"
+										"variable": "top_bar_x",
+										"value": "spr_anticucho.X - 50"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 365242636743259,
+									"parameters": {
+										"variable": "top_bar_y",
+										"value": "spr_anticucho.Y - 10"
 									}
 								}
 							],
@@ -4447,19 +4680,91 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_anticucho",
+									"sid": 446546044473715,
+									"parameters": {
+										"instance-variable": "side",
+										"comparison": 0,
+										"value": "\"A\""
+									}
+								}
+							],
 							"actions": [
+								{
+									"id": "set-progress",
+									"objectClass": "bar_anticucho_a",
+									"sid": 198876739937362,
+									"parameters": {
+										"value": "Self.Progress + dt"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_a",
+									"sid": 370689381254451,
+									"parameters": {
+										"x": "top_bar_x",
+										"y": "top_bar_y"
+									}
+								},
 								{
 									"id": "set-position",
 									"objectClass": "bar_anticucho_b",
-									"sid": 738764734625966,
+									"sid": 716192868371972,
 									"parameters": {
 										"x": "bar_anticucho_a.X",
 										"y": "bar_anticucho_a.Y + Self.Height * 1.1"
 									}
 								}
 							],
-							"sid": 622639707478053
+							"sid": 337118667831458
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_anticucho",
+									"sid": 498513662219796,
+									"parameters": {
+										"instance-variable": "side",
+										"comparison": 0,
+										"value": "\"B\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-progress",
+									"objectClass": "bar_anticucho_b",
+									"sid": 593364573618350,
+									"parameters": {
+										"value": "Self.Progress + dt"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_b",
+									"sid": 693700463689877,
+									"parameters": {
+										"x": "top_bar_x",
+										"y": "top_bar_y"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_a",
+									"sid": 856267105335437,
+									"parameters": {
+										"x": "bar_anticucho_b.X",
+										"y": "bar_anticucho_b.Y + Self.Height * 1.1"
+									}
+								}
+							],
+							"sid": 427268292811729
 						}
 					]
 				}

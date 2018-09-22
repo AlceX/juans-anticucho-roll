@@ -1490,7 +1490,7 @@
 						"world_x": 0,
 						"world_y": 0,
 						"grid_positions": "",
-						"side": "\"A\""
+						"side": "A"
 					},
 					"behaviors": {},
 					"world": {
@@ -1560,7 +1560,7 @@
 						"world_x": 0,
 						"world_y": 0,
 						"grid_positions": "",
-						"side": "\"A\""
+						"side": "A"
 					},
 					"behaviors": {},
 					"world": {
@@ -1593,7 +1593,7 @@
 						"world_x": 0,
 						"world_y": 0,
 						"grid_positions": "",
-						"side": "\"A\""
+						"side": "A"
 					},
 					"behaviors": {},
 					"world": {
@@ -1626,7 +1626,7 @@
 						"world_x": 0,
 						"world_y": 0,
 						"grid_positions": "",
-						"side": "\"A\""
+						"side": "A"
 					},
 					"behaviors": {},
 					"world": {
@@ -1714,7 +1714,7 @@
 					"type": "bar_anticucho_a",
 					"properties": {
 						"value": 0,
-						"maximum": 10,
+						"maximum": 22,
 						"tooltip": "",
 						"initially-visible": true,
 						"id": ""
@@ -1725,15 +1725,15 @@
 					"world": {
 						"x": 550,
 						"y": 71,
-						"width": 60,
-						"height": 13,
+						"width": 45,
+						"height": 10,
 						"originX": 0,
 						"originY": 0,
 						"color": [
 							1,
 							1,
 							1,
-							1
+							0.75
 						]
 					}
 				},
@@ -1741,7 +1741,7 @@
 					"type": "bar_anticucho_b",
 					"properties": {
 						"value": 0,
-						"maximum": 10,
+						"maximum": 22,
 						"tooltip": "",
 						"initially-visible": true,
 						"id": ""
@@ -1752,15 +1752,15 @@
 					"world": {
 						"x": 550,
 						"y": 85,
-						"width": 60,
-						"height": 13,
+						"width": 45,
+						"height": 10,
 						"originX": 0,
 						"originY": 0,
 						"color": [
 							1,
 							1,
 							1,
-							1
+							0.75
 						]
 					}
 				}
