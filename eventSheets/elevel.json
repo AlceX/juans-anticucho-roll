@@ -462,6 +462,14 @@
 									"parameters": {
 										"speed": "round(random(5,10))"
 									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "spr_fire",
+									"sid": 283763147521558,
+									"parameters": {
+										"angle": "choose(0, 90, 180, 270)"
+									}
 								}
 							],
 							"sid": 157254766146005
