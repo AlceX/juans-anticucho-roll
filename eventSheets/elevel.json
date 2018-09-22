@@ -4695,7 +4695,7 @@
 							"actions": [
 								{
 									"id": "set-progress",
-									"objectClass": "bar_anticucho_a",
+									"objectClass": "bar_anticucho_b",
 									"sid": 198876739937362,
 									"parameters": {
 										"value": "Self.Progress + dt"
@@ -4739,7 +4739,7 @@
 							"actions": [
 								{
 									"id": "set-progress",
-									"objectClass": "bar_anticucho_b",
+									"objectClass": "bar_anticucho_a",
 									"sid": 593364573618350,
 									"parameters": {
 										"value": "Self.Progress + dt"
