@@ -495,18 +495,176 @@
 							"sid": 847786068689578
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 343585323569160,
+					"children": [
 						{
-							"id": "set-position-to-another-object",
-							"objectClass": "spr_player_hands",
-							"sid": 747720498486666,
-							"parameters": {
-								"object": "spr_player",
-								"image-point-optional": "0"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_player",
+									"sid": 725928864458198,
+									"parameters": {
+										"instance-variable": "grabbed_anticucho_uid",
+										"comparison": 0,
+										"value": "-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "spr_player_hands",
+									"sid": 997483988894134,
+									"parameters": {
+										"object": "spr_player",
+										"image-point-optional": "0"
+									}
+								}
+							],
+							"sid": 957104100110530
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 147284016168295
+								}
+							],
+							"actions": [],
+							"sid": 447498525789939,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "spr_player",
+											"sid": 373067457734532,
+											"parameters": {
+												"animation": "\"up\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "spr_player_hands",
+											"sid": 167565754012849,
+											"parameters": {
+												"x": "spr_player.X",
+												"y": "spr_player.Y - TILE_SIZE"
+											}
+										}
+									],
+									"sid": 881671343524772
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "spr_player",
+											"sid": 777883540300670,
+											"parameters": {
+												"animation": "\"left\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "spr_player_hands",
+											"sid": 583574951012900,
+											"parameters": {
+												"x": "spr_player.X - TILE_SIZE / 2",
+												"y": "spr_player.Y"
+											}
+										}
+									],
+									"sid": 235592222937194
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "spr_player",
+											"sid": 143884312980886,
+											"parameters": {
+												"animation": "\"down\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "spr_player_hands",
+											"sid": 955193727328535,
+											"parameters": {
+												"x": "spr_player.X",
+												"y": "spr_player.Y + TILE_SIZE / 2"
+											}
+										}
+									],
+									"sid": 406549436258276
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "spr_player",
+											"sid": 388155136994723,
+											"parameters": {
+												"animation": "\"right\"\n"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "spr_player_hands",
+											"sid": 539869789237131,
+											"parameters": {
+												"x": "spr_player.X + TILE_SIZE / 2",
+												"y": "spr_player.Y"
+											}
+										}
+									],
+									"sid": 143397137348065
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "spr_anticucho",
+											"sid": 181345973025068,
+											"parameters": {
+												"unique-id": "spr_player.grabbed_anticucho_uid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-object",
+											"objectClass": "spr_player_hands",
+											"sid": 209986398330349,
+											"parameters": {
+												"where": "in-front",
+												"object": "spr_anticucho"
+											}
+										}
+									],
+									"sid": 470032791461760
+								}
+							]
 						}
-					],
-					"sid": 343585323569160
+					]
 				},
 				{
 					"eventType": "block",
