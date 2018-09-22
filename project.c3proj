@@ -60,10 +60,7 @@
 		"items": [
 			"spr_player",
 			"spr_anticucho",
-			"debug_array",
-			"obj_anticucho_collision_check",
-			"arr_board_state",
-			"debug_text"
+			"arr_board_state"
 		],
 		"subfolders": [
 			{
@@ -81,6 +78,14 @@
 				],
 				"subfolders": [],
 				"name": "Background"
+			},
+			{
+				"items": [
+					"debug_array",
+					"debug_text"
+				],
+				"subfolders": [],
+				"name": "Debug"
 			}
 		]
 	},
