@@ -100,7 +100,8 @@
 		"items": [
 			"arr_board_state",
 			"spr_text_box",
-			"txt_score"
+			"txt_score",
+			"bg_screen"
 		],
 		"subfolders": [
 			{
@@ -171,13 +172,17 @@
 	},
 	"layouts": {
 		"items": [
-			"Level"
+			"Level",
+			"Menu",
+			"GameOver"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"eLevel"
+			"eLevel",
+			"eMenu",
+			"eGameOver"
 		],
 		"subfolders": []
 	},
@@ -325,5 +330,5 @@
 	},
 	"viewportWidth": 640,
 	"viewportHeight": 480,
-	"firstLayout": null
+	"firstLayout": "Menu"
 }

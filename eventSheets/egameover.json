@@ -1,0 +1,51 @@
+{
+	"name": "eGameOver",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 118061552354751
+				}
+			],
+			"actions": [
+				{
+					"id": "append-text",
+					"objectClass": "txt_score",
+					"sid": 766623973618992,
+					"parameters": {
+						"text": "anticuchos"
+					}
+				}
+			],
+			"sid": 584646468355252
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 876275313740765,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 590384167320735,
+					"parameters": {
+						"layout": "Level"
+					}
+				}
+			],
+			"sid": 886139873866589
+		}
+	],
+	"sid": 173719232126193
+}

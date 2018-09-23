@@ -1,0 +1,54 @@
+{
+	"name": "eMenu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 903263342636423
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 220141020049155,
+					"parameters": {
+						"audio-file": "ambient_fire",
+						"loop": "looping",
+						"volume": "5",
+						"tag-optional": "\"ambient\""
+					}
+				}
+			],
+			"sid": 379006439284000
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 200246768668141,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 514074842010896,
+					"parameters": {
+						"layout": "Level"
+					}
+				}
+			],
+			"sid": 735090819327558
+		}
+	],
+	"sid": 192678000669104
+}
