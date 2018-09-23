@@ -55,6 +55,22 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r111",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r111",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
@@ -66,9 +82,9 @@
 	"uniqueId": "12iusmrwtsr",
 	"objectTypes": {
 		"items": [
-			"spr_player",
 			"arr_board_state",
-			"spr_player_hands"
+			"spr_text_box",
+			"txt_score"
 		],
 		"subfolders": [
 			{
@@ -103,6 +119,14 @@
 				],
 				"subfolders": [],
 				"name": "Anticucho"
+			},
+			{
+				"items": [
+					"spr_player",
+					"spr_player_hands"
+				],
+				"subfolders": [],
+				"name": "Player"
 			}
 		]
 	},
