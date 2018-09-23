@@ -58,6 +58,28 @@
 						"variable": "lives",
 						"value": "3"
 					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 573384301522792,
+					"parameters": {
+						"audio-file": "ambient_fire",
+						"loop": "looping",
+						"volume": "5",
+						"tag-optional": "\"ambient\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 183159034336825,
+					"parameters": {
+						"audio-file": "music",
+						"loop": "looping",
+						"volume": "-5",
+						"tag-optional": "\"music\""
+					}
 				}
 			],
 			"sid": 512540639857128
@@ -1092,6 +1114,17 @@
 													}
 												},
 												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 346171902048317,
+													"parameters": {
+														"audio-file": "sfx_burnt",
+														"loop": "not-looping",
+														"volume": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 770034901014474,
@@ -1280,6 +1313,17 @@
 													}
 												},
 												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 558292474536255,
+													"parameters": {
+														"audio-file": "sfx_burnt",
+														"loop": "not-looping",
+														"volume": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 656594954957876,
@@ -1457,10 +1501,27 @@
 							],
 							"actions": [
 								{
+									"id": "set-instvar-value",
+									"objectClass": "spr_player",
+									"sid": 172609076971809,
+									"parameters": {
+										"instance-variable": "grabbed_anticucho_uid",
+										"value": "-1"
+									}
+								},
+								{
 									"id": "start-fade",
 									"objectClass": "spr_anticucho",
 									"sid": 576830275215715,
 									"behaviorType": "Fade"
+								},
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "spr_anticucho",
+									"sid": 909755645961914,
+									"parameters": {
+										"collisions": "disabled"
+									}
 								},
 								{
 									"id": "call-function",
@@ -1488,6 +1549,17 @@
 									"sid": 268199088778479,
 									"parameters": {
 										"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 795353628697339,
+									"parameters": {
+										"audio-file": "sfx_well_cooked",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
 									}
 								}
 							],
@@ -2070,6 +2142,18 @@
 														"instance-variable": "grid_y",
 														"value": "1"
 													}
+												},
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 269353042818760,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+														"loop": "not-looping",
+														"volume": "-5",
+														"tag-optional": "\"\""
+													}
 												}
 											],
 											"sid": 987308381780650
@@ -2170,6 +2254,18 @@
 													"parameters": {
 														"instance-variable": "grid_x",
 														"value": "1"
+													}
+												},
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 483182133094355,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+														"loop": "not-looping",
+														"volume": "-5",
+														"tag-optional": "\"\""
 													}
 												}
 											],
@@ -2272,6 +2368,18 @@
 														"instance-variable": "grid_y",
 														"value": "1"
 													}
+												},
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 423356475151805,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+														"loop": "not-looping",
+														"volume": "-5",
+														"tag-optional": "\"\""
+													}
 												}
 											],
 											"sid": 361955649849053
@@ -2373,6 +2481,18 @@
 														"instance-variable": "grid_x",
 														"value": "1"
 													}
+												},
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 356252204394764,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+														"loop": "not-looping",
+														"volume": "-5",
+														"tag-optional": "\"\""
+													}
 												}
 											],
 											"sid": 615550424056046
@@ -2427,6 +2547,18 @@
 												"instance-variable": "grabbed_anticucho_uid",
 												"value": "spr_anticucho.UID"
 											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 945113455433628,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "choose(\"sfx_grab_1\", \"sfx_grab_2\")",
+												"loop": "not-looping",
+												"volume": "-5",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 641989193089211
@@ -2461,6 +2593,18 @@
 											"parameters": {
 												"instance-variable": "grabbed_anticucho_uid",
 												"value": "spr_anticucho.UID"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 497732257676576,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "choose(\"sfx_grab_1\", \"sfx_grab_2\")",
+												"loop": "not-looping",
+												"volume": "-5",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -2497,6 +2641,18 @@
 												"instance-variable": "grabbed_anticucho_uid",
 												"value": "spr_anticucho.UID"
 											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 870814857822392,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "choose(\"sfx_grab_1\", \"sfx_grab_2\")",
+												"loop": "not-looping",
+												"volume": "-5",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 811578491710550
@@ -2531,6 +2687,18 @@
 											"parameters": {
 												"instance-variable": "grabbed_anticucho_uid",
 												"value": "spr_anticucho.UID"
+											}
+										},
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 219731769591553,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "choose(\"sfx_grab_1\", \"sfx_grab_2\")",
+												"loop": "not-looping",
+												"volume": "-5",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -2641,6 +2809,18 @@
 																"instance-variable": "grid_y",
 																"value": "1"
 															}
+														},
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 778630530648212,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+																"loop": "not-looping",
+																"volume": "-15",
+																"tag-optional": "\"\""
+															}
 														}
 													],
 													"sid": 554680487379586
@@ -2713,6 +2893,18 @@
 															"parameters": {
 																"instance-variable": "grid_x",
 																"value": "1"
+															}
+														},
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 296309614607438,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+																"loop": "not-looping",
+																"volume": "-15",
+																"tag-optional": "\"\""
 															}
 														}
 													],
@@ -2787,6 +2979,18 @@
 																"instance-variable": "grid_y",
 																"value": "1"
 															}
+														},
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 994405559364853,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+																"loop": "not-looping",
+																"volume": "-15",
+																"tag-optional": "\"\""
+															}
 														}
 													],
 													"sid": 144564806302512
@@ -2860,6 +3064,18 @@
 																"instance-variable": "grid_x",
 																"value": "1"
 															}
+														},
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 494457719574241,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+																"loop": "not-looping",
+																"volume": "-15",
+																"tag-optional": "\"\""
+															}
 														}
 													],
 													"sid": 575172198196364
@@ -2893,14 +3109,14 @@
 												{
 													"id": "on-key-pressed",
 													"objectClass": "Keyboard",
-													"sid": 360052760177007,
+													"sid": 929781007185009,
 													"parameters": {
 														"key": 38
 													}
 												}
 											],
 											"actions": [],
-											"sid": 576060110357620,
+											"sid": 691510920269040,
 											"children": [
 												{
 													"eventType": "block",
@@ -2908,7 +3124,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 353487147735997,
+															"sid": 774571203637694,
 															"parameters": {
 																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y - 1)",
 																"comparison": 0,
@@ -2918,7 +3134,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 593726714668587,
+															"sid": 733077231458854,
 															"parameters": {
 																"first-value": "Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"up\")",
 																"comparison": 0,
@@ -2930,7 +3146,7 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 944382123524247,
+															"sid": 437894457177938,
 															"parameters": {
 																"x": "spr_player.grid_x",
 																"y": "spr_player.grid_y",
@@ -2940,7 +3156,7 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 534681584483088,
+															"sid": 146548033748302,
 															"parameters": {
 																"x": "spr_player.grid_x",
 																"y": "spr_player.grid_y - 1",
@@ -2950,7 +3166,7 @@
 														{
 															"id": "subtract-from-instvar",
 															"objectClass": "spr_player",
-															"sid": 546521445430846,
+															"sid": 447919037954429,
 															"parameters": {
 																"instance-variable": "world_y",
 																"value": "TILE_SIZE"
@@ -2959,7 +3175,7 @@
 														{
 															"id": "subtract-from-instvar",
 															"objectClass": "spr_player",
-															"sid": 197508687102767,
+															"sid": 662020343118127,
 															"parameters": {
 																"instance-variable": "grid_y",
 																"value": "1"
@@ -2968,7 +3184,7 @@
 														{
 															"id": "call-function",
 															"objectClass": "Function",
-															"sid": 996667412198758,
+															"sid": 445281142668453,
 															"parameters": {
 																"name": "\"eLevel/Movement.move_anticucho_in_array\"",
 																"parameter-n": [
@@ -2980,14 +3196,37 @@
 														{
 															"id": "subtract-from-instvar",
 															"objectClass": "spr_anticucho",
-															"sid": 936575739221987,
+															"sid": 573800815583826,
 															"parameters": {
 																"instance-variable": "world_y",
 																"value": "TILE_SIZE"
 															}
+														},
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 259434586149050,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+																"loop": "not-looping",
+																"volume": "5",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 347686853371964,
+															"parameters": {
+																"audio-file": "sfx_meat_move",
+																"loop": "not-looping",
+																"volume": "-10",
+																"tag-optional": "\"\""
+															}
 														}
 													],
-													"sid": 786912987191707,
+													"sid": 157476328764288,
 													"children": [
 														{
 															"eventType": "block",
@@ -2995,7 +3234,7 @@
 																{
 																	"id": "is-within-angle",
 																	"objectClass": "spr_anticucho",
-																	"sid": 487638336458568,
+																	"sid": 233068911934097,
 																	"parameters": {
 																		"within": "0.5",
 																		"angle": "90"
@@ -3006,16 +3245,27 @@
 																{
 																	"id": "call-function",
 																	"objectClass": "Function",
-																	"sid": 665636642229342,
+																	"sid": 769054767871218,
 																	"parameters": {
 																		"name": "\"eLevel/Movement.flip_anticucho\"",
 																		"parameter-n": [
 																			"spr_anticucho.UID"
 																		]
 																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 439148701210768,
+																	"parameters": {
+																		"audio-file": "sfx_meat_flip",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"tag-optional": "\"\""
+																	}
 																}
 															],
-															"sid": 681148597079897
+															"sid": 831884672121902
 														}
 													]
 												}
@@ -3027,7 +3277,7 @@
 												{
 													"id": "on-key-pressed",
 													"objectClass": "Keyboard",
-													"sid": 402381406367858,
+													"sid": 866288972911131,
 													"parameters": {
 														"key": 37
 													}
@@ -3037,14 +3287,14 @@
 												{
 													"id": "set-text",
 													"objectClass": "debug_text",
-													"sid": 388297352623351,
+													"sid": 725459567612534,
 													"disabled": true,
 													"parameters": {
 														"text": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x - 1, spr_player.grid_y) & newline & Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"left\") & newline & round(time)"
 													}
 												}
 											],
-											"sid": 934160301081823,
+											"sid": 624822485596473,
 											"children": [
 												{
 													"eventType": "block",
@@ -3052,7 +3302,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 295217069162703,
+															"sid": 365544311900818,
 															"parameters": {
 																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x - 1, spr_player.grid_y)",
 																"comparison": 0,
@@ -3062,7 +3312,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 770427598843508,
+															"sid": 375943123737817,
 															"parameters": {
 																"first-value": "Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"left\")",
 																"comparison": 0,
@@ -3074,7 +3324,7 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 412169705512202,
+															"sid": 485602310190941,
 															"parameters": {
 																"x": "spr_player.grid_x",
 																"y": "spr_player.grid_y",
@@ -3084,7 +3334,7 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 519608559156329,
+															"sid": 828408076869403,
 															"parameters": {
 																"x": "spr_player.grid_x - 1",
 																"y": "spr_player.grid_y",
@@ -3094,7 +3344,7 @@
 														{
 															"id": "subtract-from-instvar",
 															"objectClass": "spr_player",
-															"sid": 382216131038941,
+															"sid": 176057331051374,
 															"parameters": {
 																"instance-variable": "world_x",
 																"value": "TILE_SIZE"
@@ -3103,7 +3353,7 @@
 														{
 															"id": "subtract-from-instvar",
 															"objectClass": "spr_player",
-															"sid": 765347363754267,
+															"sid": 631215016821581,
 															"parameters": {
 																"instance-variable": "grid_x",
 																"value": "1"
@@ -3112,7 +3362,7 @@
 														{
 															"id": "call-function",
 															"objectClass": "Function",
-															"sid": 288176779199831,
+															"sid": 260694923981207,
 															"parameters": {
 																"name": "\"eLevel/Movement.move_anticucho_in_array\"",
 																"parameter-n": [
@@ -3124,14 +3374,37 @@
 														{
 															"id": "subtract-from-instvar",
 															"objectClass": "spr_anticucho",
-															"sid": 912482709483410,
+															"sid": 339228208665822,
 															"parameters": {
 																"instance-variable": "world_x",
 																"value": "TILE_SIZE"
 															}
+														},
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 318026058645823,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+																"loop": "not-looping",
+																"volume": "-5",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 660412641203697,
+															"parameters": {
+																"audio-file": "sfx_meat_move",
+																"loop": "not-looping",
+																"volume": "-10",
+																"tag-optional": "\"\""
+															}
 														}
 													],
-													"sid": 424928430653041,
+													"sid": 682972763452834,
 													"children": [
 														{
 															"eventType": "block",
@@ -3139,7 +3412,7 @@
 																{
 																	"id": "is-within-angle",
 																	"objectClass": "spr_anticucho",
-																	"sid": 410265436578043,
+																	"sid": 674831150194127,
 																	"parameters": {
 																		"within": "0.5",
 																		"angle": "0"
@@ -3150,16 +3423,27 @@
 																{
 																	"id": "call-function",
 																	"objectClass": "Function",
-																	"sid": 677744075199378,
+																	"sid": 911400000626215,
 																	"parameters": {
 																		"name": "\"eLevel/Movement.flip_anticucho\"",
 																		"parameter-n": [
 																			"spr_anticucho.UID"
 																		]
 																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 275964137413720,
+																	"parameters": {
+																		"audio-file": "sfx_meat_flip",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"tag-optional": "\"\""
+																	}
 																}
 															],
-															"sid": 362052790721175
+															"sid": 967553489695678
 														}
 													]
 												}
@@ -3171,14 +3455,14 @@
 												{
 													"id": "on-key-pressed",
 													"objectClass": "Keyboard",
-													"sid": 277458386144016,
+													"sid": 191293693955597,
 													"parameters": {
 														"key": 40
 													}
 												}
 											],
 											"actions": [],
-											"sid": 170399077896083,
+											"sid": 298247246983386,
 											"children": [
 												{
 													"eventType": "block",
@@ -3186,7 +3470,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 131609645219464,
+															"sid": 177260426050580,
 															"parameters": {
 																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x, spr_player.grid_y + 1)",
 																"comparison": 0,
@@ -3196,7 +3480,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 758285661422851,
+															"sid": 651647461898878,
 															"parameters": {
 																"first-value": "Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"down\")",
 																"comparison": 0,
@@ -3208,7 +3492,7 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 975798302131418,
+															"sid": 405268771343801,
 															"parameters": {
 																"x": "spr_player.grid_x",
 																"y": "spr_player.grid_y",
@@ -3218,7 +3502,7 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 203379198703610,
+															"sid": 235133933433411,
 															"parameters": {
 																"x": "spr_player.grid_x",
 																"y": "spr_player.grid_y + 1",
@@ -3228,7 +3512,7 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "spr_player",
-															"sid": 186099911963064,
+															"sid": 499063119553892,
 															"parameters": {
 																"instance-variable": "world_y",
 																"value": "TILE_SIZE"
@@ -3237,7 +3521,7 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "spr_player",
-															"sid": 745866717944359,
+															"sid": 656734398650839,
 															"parameters": {
 																"instance-variable": "grid_y",
 																"value": "1"
@@ -3246,7 +3530,7 @@
 														{
 															"id": "call-function",
 															"objectClass": "Function",
-															"sid": 483832826852745,
+															"sid": 696629448024694,
 															"parameters": {
 																"name": "\"eLevel/Movement.move_anticucho_in_array\"",
 																"parameter-n": [
@@ -3258,14 +3542,37 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "spr_anticucho",
-															"sid": 157680344744935,
+															"sid": 900551167974282,
 															"parameters": {
 																"instance-variable": "world_y",
 																"value": "TILE_SIZE"
 															}
+														},
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 463026481781050,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+																"loop": "not-looping",
+																"volume": "-5",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 764161696377645,
+															"parameters": {
+																"audio-file": "sfx_meat_move",
+																"loop": "not-looping",
+																"volume": "-10",
+																"tag-optional": "\"\""
+															}
 														}
 													],
-													"sid": 354043893910965,
+													"sid": 237060740027177,
 													"children": [
 														{
 															"eventType": "block",
@@ -3273,7 +3580,7 @@
 																{
 																	"id": "is-within-angle",
 																	"objectClass": "spr_anticucho",
-																	"sid": 856686222921959,
+																	"sid": 812918143017666,
 																	"parameters": {
 																		"within": "0.5",
 																		"angle": "90"
@@ -3284,16 +3591,27 @@
 																{
 																	"id": "call-function",
 																	"objectClass": "Function",
-																	"sid": 181004519240160,
+																	"sid": 139530686950067,
 																	"parameters": {
 																		"name": "\"eLevel/Movement.flip_anticucho\"",
 																		"parameter-n": [
 																			"spr_anticucho.UID"
 																		]
 																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 518241117678023,
+																	"parameters": {
+																		"audio-file": "sfx_meat_flip",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"tag-optional": "\"\""
+																	}
 																}
 															],
-															"sid": 114956694693794
+															"sid": 480487016795895
 														}
 													]
 												}
@@ -3305,14 +3623,14 @@
 												{
 													"id": "on-key-pressed",
 													"objectClass": "Keyboard",
-													"sid": 524965168291998,
+													"sid": 683247571510699,
 													"parameters": {
 														"key": 39
 													}
 												}
 											],
 											"actions": [],
-											"sid": 947255588568602,
+											"sid": 266414534113179,
 											"children": [
 												{
 													"eventType": "block",
@@ -3320,7 +3638,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 409496275785260,
+															"sid": 290235685411380,
 															"parameters": {
 																"first-value": "Function.Call(\"eLevel/Movement.is_space_valid\", spr_player.grid_x + 1, spr_player.grid_y)",
 																"comparison": 0,
@@ -3330,7 +3648,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 982203995095862,
+															"sid": 192805199275361,
 															"parameters": {
 																"first-value": "Function.Call(\"eLevel/Movement.can_move_anticucho\", spr_anticucho.UID, \"right\")",
 																"comparison": 0,
@@ -3342,7 +3660,7 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 389760611033090,
+															"sid": 857430687074113,
 															"parameters": {
 																"x": "spr_player.grid_x",
 																"y": "spr_player.grid_y",
@@ -3352,7 +3670,7 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "arr_board_state",
-															"sid": 944282844554983,
+															"sid": 521231429570455,
 															"parameters": {
 																"x": "spr_player.grid_x + 1",
 																"y": "spr_player.grid_y",
@@ -3362,7 +3680,7 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "spr_player",
-															"sid": 976090937731641,
+															"sid": 821987335066439,
 															"parameters": {
 																"instance-variable": "world_x",
 																"value": "TILE_SIZE"
@@ -3371,7 +3689,7 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "spr_player",
-															"sid": 653489689502564,
+															"sid": 583037204789941,
 															"parameters": {
 																"instance-variable": "grid_x",
 																"value": "1"
@@ -3380,7 +3698,7 @@
 														{
 															"id": "call-function",
 															"objectClass": "Function",
-															"sid": 950173551008389,
+															"sid": 326102603062220,
 															"parameters": {
 																"name": "\"eLevel/Movement.move_anticucho_in_array\"",
 																"parameter-n": [
@@ -3392,14 +3710,37 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "spr_anticucho",
-															"sid": 614594646281073,
+															"sid": 457539085991948,
 															"parameters": {
 																"instance-variable": "world_x",
 																"value": "TILE_SIZE"
 															}
+														},
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 542898586766204,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "choose(\"sfx_jump_1\", \"sfx_jump_2\")",
+																"loop": "not-looping",
+																"volume": "-5",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 783650451632279,
+															"parameters": {
+																"audio-file": "sfx_meat_move",
+																"loop": "not-looping",
+																"volume": "-10",
+																"tag-optional": "\"\""
+															}
 														}
 													],
-													"sid": 564179157728881,
+													"sid": 653097689922527,
 													"children": [
 														{
 															"eventType": "block",
@@ -3407,7 +3748,7 @@
 																{
 																	"id": "is-within-angle",
 																	"objectClass": "spr_anticucho",
-																	"sid": 776707734300153,
+																	"sid": 259125753181054,
 																	"parameters": {
 																		"within": "0.5",
 																		"angle": "0"
@@ -3418,16 +3759,27 @@
 																{
 																	"id": "call-function",
 																	"objectClass": "Function",
-																	"sid": 537658568695694,
+																	"sid": 832526048619027,
 																	"parameters": {
 																		"name": "\"eLevel/Movement.flip_anticucho\"",
 																		"parameter-n": [
 																			"spr_anticucho.UID"
 																		]
 																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 457753593197334,
+																	"parameters": {
+																		"audio-file": "sfx_meat_flip",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"tag-optional": "\"\""
+																	}
 																}
 															],
-															"sid": 759981498137350
+															"sid": 150080650258539
 														}
 													]
 												}

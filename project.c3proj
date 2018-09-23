@@ -24,6 +24,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r111",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -98,7 +106,8 @@
 			{
 				"items": [
 					"Keyboard",
-					"Function"
+					"Function",
+					"Audio"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -174,11 +183,53 @@
 	},
 	"rootFileFolders": {
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "sfx_grab_1.webm",
+					"type": "audio/webm; codecs=opus"
+				},
+				{
+					"name": "sfx_grab_2.webm",
+					"type": "audio/webm; codecs=opus"
+				},
+				{
+					"name": "sfx_jump_1.webm",
+					"type": "audio/webm; codecs=opus"
+				},
+				{
+					"name": "sfx_jump_2.webm",
+					"type": "audio/webm; codecs=opus"
+				},
+				{
+					"name": "sfx_meat_move.webm",
+					"type": "audio/webm; codecs=opus"
+				},
+				{
+					"name": "sfx_meat_flip.webm",
+					"type": "audio/webm; codecs=opus"
+				},
+				{
+					"name": "sfx_well_cooked.webm",
+					"type": "audio/webm; codecs=opus"
+				},
+				{
+					"name": "sfx_burnt.webm",
+					"type": "audio/webm; codecs=opus"
+				}
+			],
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "ambient_fire.webm",
+					"type": "audio/webm; codecs=opus"
+				},
+				{
+					"name": "music.webm",
+					"type": "audio/webm; codecs=opus"
+				}
+			],
 			"subfolders": []
 		},
 		"video": {
