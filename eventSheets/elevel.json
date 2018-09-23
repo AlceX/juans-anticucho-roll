@@ -4859,6 +4859,10 @@
 							"sid": 427268292811729
 						},
 						{
+							"eventType": "comment",
+							"text": "Anticucho burning"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -4922,13 +4926,13 @@
 													}
 												},
 												{
-													"id": "compare-opacity",
+													"id": "is-boolean-instance-variable-set",
 													"objectClass": "spr_anticucho",
-													"sid": 318439353528847,
+													"sid": 204066319735969,
 													"parameters": {
-														"comparison": 0,
-														"opacity": "100"
-													}
+														"instance-variable": "burnt"
+													},
+													"isInverted": true
 												}
 											],
 											"actions": [
@@ -4942,10 +4946,17 @@
 													}
 												},
 												{
-													"id": "start-fade",
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 805043913416751,
+													"parameters": {
+														"seconds": "1.8"
+													}
+												},
+												{
+													"id": "destroy",
 													"objectClass": "spr_anticucho",
-													"sid": 157671681054499,
-													"behaviorType": "Fade"
+													"sid": 762800842948266
 												},
 												{
 													"id": "subtract-from-eventvar",
@@ -5103,13 +5114,13 @@
 													}
 												},
 												{
-													"id": "compare-opacity",
+													"id": "is-boolean-instance-variable-set",
 													"objectClass": "spr_anticucho",
-													"sid": 196913566929224,
+													"sid": 346781794988560,
 													"parameters": {
-														"comparison": 0,
-														"opacity": "100"
-													}
+														"instance-variable": "burnt"
+													},
+													"isInverted": true
 												}
 											],
 											"actions": [
@@ -5123,10 +5134,17 @@
 													}
 												},
 												{
-													"id": "start-fade",
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 672071394644633,
+													"parameters": {
+														"seconds": "1.8"
+													}
+												},
+												{
+													"id": "destroy",
 													"objectClass": "spr_anticucho",
-													"sid": 695562020994898,
-													"behaviorType": "Fade"
+													"sid": 933090168705066
 												},
 												{
 													"id": "subtract-from-eventvar",
@@ -5240,6 +5258,10 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Sending a finished anticucho"
 				},
 				{
 					"eventType": "block",

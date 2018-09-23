@@ -1884,7 +1884,7 @@
 				{
 					"type": "txt_score",
 					"properties": {
-						"text": "Anticuchos: 0\n\nLives: 3",
+						"text": "Anticuchos: 0\nLives: 3",
 						"enable-bbcode": false,
 						"font": "Arial",
 						"size": 12,
