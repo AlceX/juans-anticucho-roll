@@ -735,6 +735,31 @@
 									"sid": 866939875759920
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "spr_anticucho",
+									"sid": 130186492064433,
+									"parameters": {
+										"instance-variable": "burnt"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "spr_anticucho",
+									"sid": 234817912209987,
+									"parameters": {
+										"frame-number": "6"
+									}
+								}
+							],
+							"sid": 321941541784108,
+							"isOrBlock": true
 						}
 					]
 				}
@@ -4584,6 +4609,12 @@
 												"instance-variable": "side",
 												"value": "\"B\""
 											}
+										},
+										{
+											"id": "stop-flashing",
+											"objectClass": "bar_anticucho_b",
+											"sid": 360465333847689,
+											"behaviorType": "Flash"
 										}
 									],
 									"sid": 135857577009150
@@ -4606,6 +4637,12 @@
 												"instance-variable": "side",
 												"value": "\"A\""
 											}
+										},
+										{
+											"id": "stop-flashing",
+											"objectClass": "bar_anticucho_a",
+											"sid": 117409607214035,
+											"behaviorType": "Flash"
 										}
 									],
 									"sid": 140440773931952
@@ -4820,6 +4857,387 @@
 								}
 							],
 							"sid": 427268292811729
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 191763536343524,
+									"parameters": {
+										"first-value": "spr_anticucho.UID",
+										"comparison": 1,
+										"second-value": "spr_player.grabbed_anticucho_uid"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 220522975545915,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "spr_anticucho",
+											"sid": 894103291086832,
+											"parameters": {
+												"instance-variable": "side",
+												"comparison": 0,
+												"value": "\"B\""
+											}
+										},
+										{
+											"id": "compare-progress",
+											"objectClass": "bar_anticucho_a",
+											"sid": 152971495492485,
+											"parameters": {
+												"comparison": 0,
+												"value": "Self.Maximum"
+											}
+										},
+										{
+											"id": "is-flashing",
+											"objectClass": "bar_anticucho_a",
+											"sid": 855008562919522,
+											"behaviorType": "Flash",
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 673411531510138,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_a",
+													"sid": 622236728470381,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"last_warning\""
+													}
+												},
+												{
+													"id": "compare-opacity",
+													"objectClass": "spr_anticucho",
+													"sid": 318439353528847,
+													"parameters": {
+														"comparison": 0,
+														"opacity": "100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "spr_anticucho",
+													"sid": 995711221340227,
+													"parameters": {
+														"instance-variable": "burnt",
+														"value": "true"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "spr_anticucho",
+													"sid": 157671681054499,
+													"behaviorType": "Fade"
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 437715392898508,
+													"parameters": {
+														"variable": "lives",
+														"value": "1"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 760809971802478,
+													"parameters": {
+														"name": "\"eLevel/Cooking.remove_anticucho_from_array\"",
+														"parameter-n": [
+															"spr_anticucho.UID"
+														]
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "txt_score",
+													"sid": 634895701627850,
+													"parameters": {
+														"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
+													}
+												}
+											],
+											"sid": 544015857172254
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_a",
+													"sid": 276658460214487,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"first_warning\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "bar_anticucho_a",
+													"sid": 602289978369989,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "3.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bar_anticucho_a",
+													"sid": 704854335148295,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"value": "\"last_warning\""
+													}
+												}
+											],
+											"sid": 956248965703437
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_a",
+													"sid": 727014163462425,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"none\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "bar_anticucho_a",
+													"sid": 940660393088957,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.5",
+														"off-time": "0.1",
+														"duration": "5.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bar_anticucho_a",
+													"sid": 101934658478333,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"value": "\"first_warning\""
+													}
+												}
+											],
+											"sid": 847803129294002
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "spr_anticucho",
+											"sid": 728276588275017,
+											"parameters": {
+												"instance-variable": "side",
+												"comparison": 0,
+												"value": "\"A\""
+											}
+										},
+										{
+											"id": "compare-progress",
+											"objectClass": "bar_anticucho_b",
+											"sid": 983291843588084,
+											"parameters": {
+												"comparison": 0,
+												"value": "Self.Maximum"
+											}
+										},
+										{
+											"id": "is-flashing",
+											"objectClass": "bar_anticucho_b",
+											"sid": 235203081451600,
+											"behaviorType": "Flash",
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 833855165440164,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_b",
+													"sid": 524432262672591,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"last_warning\""
+													}
+												},
+												{
+													"id": "compare-opacity",
+													"objectClass": "spr_anticucho",
+													"sid": 196913566929224,
+													"parameters": {
+														"comparison": 0,
+														"opacity": "100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "spr_anticucho",
+													"sid": 941657173786305,
+													"parameters": {
+														"instance-variable": "burnt",
+														"value": "true"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "spr_anticucho",
+													"sid": 695562020994898,
+													"behaviorType": "Fade"
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 670259390982716,
+													"parameters": {
+														"variable": "lives",
+														"value": "1"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 492204546285423,
+													"parameters": {
+														"name": "\"eLevel/Cooking.remove_anticucho_from_array\"",
+														"parameter-n": [
+															"spr_anticucho.UID"
+														]
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "txt_score",
+													"sid": 230825304015221,
+													"parameters": {
+														"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
+													}
+												}
+											],
+											"sid": 701495084475164
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_b",
+													"sid": 118202715860157,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"first_warning\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "bar_anticucho_b",
+													"sid": 989670865077654,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "3.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bar_anticucho_b",
+													"sid": 483588947199666,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"value": "\"last_warning\""
+													}
+												}
+											],
+											"sid": 168298022827403
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_b",
+													"sid": 680380406481444,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"none\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "bar_anticucho_b",
+													"sid": 703993530450172,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.5",
+														"off-time": "0.1",
+														"duration": "5.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bar_anticucho_b",
+													"sid": 843080943331095,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"value": "\"first_warning\""
+													}
+												}
+											],
+											"sid": 838099785572701
+										}
+									]
+								}
+							]
 						}
 					]
 				},

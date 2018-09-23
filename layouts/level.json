@@ -1490,7 +1490,8 @@
 						"world_x": 0,
 						"world_y": 0,
 						"grid_positions": "",
-						"side": "A"
+						"side": "A",
+						"burnt": false
 					},
 					"behaviors": {
 						"Fade": {
@@ -1571,7 +1572,8 @@
 						"world_x": 0,
 						"world_y": 0,
 						"grid_positions": "",
-						"side": "A"
+						"side": "A",
+						"burnt": false
 					},
 					"behaviors": {
 						"Fade": {
@@ -1615,7 +1617,8 @@
 						"world_x": 0,
 						"world_y": 0,
 						"grid_positions": "",
-						"side": "A"
+						"side": "A",
+						"burnt": false
 					},
 					"behaviors": {
 						"Fade": {
@@ -1659,7 +1662,8 @@
 						"world_x": 0,
 						"world_y": 0,
 						"grid_positions": "",
-						"side": "A"
+						"side": "A",
+						"burnt": false
 					},
 					"behaviors": {
 						"Fade": {
@@ -1764,8 +1768,14 @@
 						"id": ""
 					},
 					"uid": 61,
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"burn_status": "none"
+					},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 550,
 						"y": 71,
@@ -1791,8 +1801,14 @@
 						"id": ""
 					},
 					"uid": 62,
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"burn_status": "none"
+					},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 550,
 						"y": 85,

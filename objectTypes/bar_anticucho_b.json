@@ -3,6 +3,19 @@
 	"plugin-id": "progressbar",
 	"sid": 494605735435038,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": []
+	"instanceVariables": [
+		{
+			"name": "burn_status",
+			"type": "string",
+			"desc": "Can be \"none\", \"first_warning\", \"last_warning\"-",
+			"sid": 547389304932916
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 433859480244712
+		}
+	]
 }
