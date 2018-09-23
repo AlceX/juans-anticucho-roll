@@ -1461,57 +1461,12 @@
 						}
 					},
 					"world": {
-						"x": 200,
-						"y": 202,
+						"x": 280,
+						"y": 278,
 						"width": 92,
 						"height": 90,
 						"originX": 0.5,
 						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0
-					}
-				},
-				{
-					"type": "spr_anticucho",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "3_piece",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 56,
-					"instanceVariables": {
-						"world_x": 0,
-						"world_y": 0,
-						"grid_positions": "",
-						"side": "A",
-						"burnt": false
-					},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
-							}
-						}
-					},
-					"world": {
-						"x": 240,
-						"y": 160,
-						"width": 80,
-						"height": 240,
-						"originX": 0,
-						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -1543,8 +1498,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": -176,
-						"y": 11,
+						"x": 640,
+						"y": 320,
 						"width": 160,
 						"height": 160,
 						"originX": 0,
@@ -1556,96 +1511,6 @@
 							1
 						],
 						"angle": 0
-					}
-				},
-				{
-					"type": "spr_anticucho",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "3_piece",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 58,
-					"instanceVariables": {
-						"world_x": 0,
-						"world_y": 0,
-						"grid_positions": "",
-						"side": "A",
-						"burnt": false
-					},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
-							}
-						}
-					},
-					"world": {
-						"x": 560,
-						"y": 80,
-						"width": 80,
-						"height": 240,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 1.5707963267948966
-					}
-				},
-				{
-					"type": "spr_anticucho",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "3_piece",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 17,
-					"instanceVariables": {
-						"world_x": 0,
-						"world_y": 0,
-						"grid_positions": "",
-						"side": "A",
-						"burnt": false
-					},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
-							}
-						}
-					},
-					"world": {
-						"x": 560,
-						"y": 400,
-						"width": 80,
-						"height": 240,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 1.5707963267948966
 					}
 				},
 				{
@@ -1762,7 +1627,7 @@
 					"type": "bar_anticucho_a",
 					"properties": {
 						"value": 0,
-						"maximum": 15,
+						"maximum": 12,
 						"tooltip": "",
 						"initially-visible": true,
 						"id": ""
@@ -1795,7 +1660,7 @@
 					"type": "bar_anticucho_b",
 					"properties": {
 						"value": 0,
-						"maximum": 15,
+						"maximum": 12,
 						"tooltip": "",
 						"initially-visible": true,
 						"id": ""
@@ -1850,6 +1715,51 @@
 							0.8
 						],
 						"angle": 0
+					}
+				},
+				{
+					"type": "spr_anticucho",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "3_piece",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 56,
+					"instanceVariables": {
+						"world_x": 0,
+						"world_y": 0,
+						"grid_positions": "",
+						"side": "A",
+						"burnt": false
+					},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 640,
+						"y": 80,
+						"width": 80,
+						"height": 240,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 1.5707963267948966
 					}
 				}
 			],

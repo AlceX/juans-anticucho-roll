@@ -63,281 +63,212 @@
 			"sid": 512540639857128
 		},
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "eLevel/Array Initialization",
-			"description": "",
-			"isActiveOnStart": true,
+			"eventType": "comment",
+			"text": "Setting the board state array."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 181663754533504
+				}
+			],
+			"actions": [
+				{
+					"id": "set-at-xy",
+					"objectClass": "arr_board_state",
+					"sid": 711146441161740,
+					"parameters": {
+						"x": "floor(spr_player.X / TILE_SIZE)",
+						"y": "floor(spr_player.Y / TILE_SIZE)",
+						"value": "\"X\""
+					}
+				}
+			],
+			"sid": 503393029087373,
 			"children": [
 				{
-					"eventType": "comment",
-					"text": "Setting the board state array."
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 764448570963658,
+							"parameters": {
+								"object": "spr_anticucho"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 394713615587242,
+							"parameters": {
+								"name": "\"eLevel.add_anticucho_to_array\"",
+								"parameter-n": [
+									"spr_anticucho.UID"
+								]
+							}
+						}
+					],
+					"sid": 875701398981815
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 306312469945251,
+					"parameters": {
+						"name": "\"eLevel.add_anticucho_to_array\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 410265279901770,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 278823053023946
+				},
+				{
+					"eventType": "variable",
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 450800662734793
+				},
+				{
+					"eventType": "variable",
+					"name": "diff",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 539581585850257
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 701185680930988
+							"id": "pick-by-unique-id",
+							"objectClass": "spr_anticucho",
+							"sid": 569925715999114,
+							"parameters": {
+								"unique-id": "Function.Param(0)"
+							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-at-xy",
-							"objectClass": "arr_board_state",
-							"sid": 360948004517133,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 260926897857863,
 							"parameters": {
-								"x": "floor(spr_player.X / TILE_SIZE)",
-								"y": "floor(spr_player.Y / TILE_SIZE)",
-								"value": "\"X\""
+								"variable": "x",
+								"value": "spr_anticucho.X / TILE_SIZE"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 745078782164682,
+							"parameters": {
+								"variable": "y",
+								"value": "spr_anticucho.Y / TILE_SIZE"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 671498558271630,
+							"parameters": {
+								"variable": "diff",
+								"value": "Function.Call(\"eLevel/anticucho_orientation_diff\", spr_anticucho.UID)"
 							}
 						}
 					],
-					"sid": 301181840353013,
+					"sid": 895913688017590,
 					"children": [
-						{
-							"eventType": "variable",
-							"name": "x",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 191107343116003
-						},
-						{
-							"eventType": "variable",
-							"name": "y",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 111470399000392
-						},
-						{
-							"eventType": "variable",
-							"name": "diff",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 542671995130561
-						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 275262998573548,
+									"id": "is-within-angle",
+									"objectClass": "spr_anticucho",
+									"sid": 940044649770706,
 									"parameters": {
-										"object": "spr_anticucho"
+										"within": "0.5",
+										"angle": "90"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-eventvar-value",
+									"id": "subtract-from-eventvar",
 									"objectClass": "System",
-									"sid": 134309304937783,
+									"sid": 614464632441270,
 									"parameters": {
 										"variable": "x",
-										"value": "spr_anticucho.X / TILE_SIZE"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 641297643240622,
-									"parameters": {
-										"variable": "y",
-										"value": "spr_anticucho.Y / TILE_SIZE"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 675294643271619,
-									"parameters": {
-										"variable": "diff",
-										"value": "Function.Call(\"eLevel/anticucho_orientation_diff\", spr_anticucho.UID)"
+										"value": "1"
 									}
 								}
 							],
-							"sid": 679202613906462,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-within-angle",
-											"objectClass": "spr_anticucho",
-											"sid": 215523211790425,
-											"parameters": {
-												"within": "0.5",
-												"angle": "90"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-eventvar",
-											"objectClass": "System",
-											"sid": 684412812024774,
-											"parameters": {
-												"variable": "x",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 460500698685832,
-									"isOrBlock": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for",
-											"objectClass": "System",
-											"sid": 634721112728160,
-											"parameters": {
-												"name": "\"\"",
-												"start-index": "0",
-												"end-index": "Function.Call(\"eLevel/anticucho_size\", spr_anticucho.UID) - 1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 833593653031054,
-											"parameters": {
-												"x": "x",
-												"y": "y",
-												"value": "1"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "spr_anticucho",
-											"sid": 575986869867342,
-											"parameters": {
-												"instance-variable": "grid_positions",
-												"value": "Self.grid_positions & x & \",\" & y & \"|\""
-											}
-										}
-									],
-									"sid": 479894953431617,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-within-angle",
-													"objectClass": "spr_anticucho",
-													"sid": 655924313804179,
-													"parameters": {
-														"within": "0.5",
-														"angle": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "add-to-eventvar",
-													"objectClass": "System",
-													"sid": 687747960591341,
-													"parameters": {
-														"variable": "y",
-														"value": "diff"
-													}
-												}
-											],
-											"sid": 526576124301499,
-											"isOrBlock": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-within-angle",
-													"objectClass": "spr_anticucho",
-													"sid": 888394429636032,
-													"parameters": {
-														"within": "0.5",
-														"angle": "90"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "add-to-eventvar",
-													"objectClass": "System",
-													"sid": 677021491232072,
-													"parameters": {
-														"variable": "x",
-														"value": "diff"
-													}
-												}
-											],
-											"sid": 602603744283466,
-											"isOrBlock": true
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "spr_anticucho",
-											"sid": 533543472422233,
-											"parameters": {
-												"instance-variable": "grid_positions",
-												"value": "left(Self.grid_positions, len(Self.grid_positions) - 1)"
-											}
-										}
-									],
-									"sid": 382081550462436
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "Function",
-							"sid": 587643304039600,
-							"parameters": {
-								"name": "\"eLevel/anticucho_orientation_diff\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 210698247449793,
-					"children": [
+							"sid": 810388139496753,
+							"isOrBlock": true
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-unique-id",
-									"objectClass": "spr_anticucho",
-									"sid": 437693685918787,
+									"id": "for",
+									"objectClass": "System",
+									"sid": 122344456698077,
 									"parameters": {
-										"unique-id": "Function.Param(0)"
+										"name": "\"\"",
+										"start-index": "0",
+										"end-index": "Function.Call(\"eLevel/anticucho_size\", spr_anticucho.UID) - 1"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 681271266855998,
+							"actions": [
+								{
+									"id": "set-at-xy",
+									"objectClass": "arr_board_state",
+									"sid": 422162386122972,
+									"parameters": {
+										"x": "x",
+										"y": "y",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "spr_anticucho",
+									"sid": 647382413988135,
+									"parameters": {
+										"instance-variable": "grid_positions",
+										"value": "Self.grid_positions & x & \",\" & y & \"|\""
+									}
+								}
+							],
+							"sid": 763296265217362,
 							"children": [
 								{
 									"eventType": "block",
@@ -345,33 +276,25 @@
 										{
 											"id": "is-within-angle",
 											"objectClass": "spr_anticucho",
-											"sid": 471878747521913,
+											"sid": 913127425691368,
 											"parameters": {
 												"within": "0.5",
 												"angle": "0"
 											}
-										},
-										{
-											"id": "is-within-angle",
-											"objectClass": "spr_anticucho",
-											"sid": 737935523524901,
-											"parameters": {
-												"within": "0.5",
-												"angle": "270"
-											}
 										}
 									],
 									"actions": [
 										{
-											"id": "set-return-value",
-											"objectClass": "Function",
-											"sid": 688547630438306,
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 122897442475749,
 											"parameters": {
-												"value": "1"
+												"variable": "y",
+												"value": "diff"
 											}
 										}
 									],
-									"sid": 614327595576636,
+									"sid": 878151051986062,
 									"isOrBlock": true
 								},
 								{
@@ -380,99 +303,210 @@
 										{
 											"id": "is-within-angle",
 											"objectClass": "spr_anticucho",
-											"sid": 663743585645347,
+											"sid": 873800343948273,
 											"parameters": {
 												"within": "0.5",
 												"angle": "90"
-											}
-										},
-										{
-											"id": "is-within-angle",
-											"objectClass": "spr_anticucho",
-											"sid": 478357886633336,
-											"parameters": {
-												"within": "0.5",
-												"angle": "180"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "set-return-value",
-											"objectClass": "Function",
-											"sid": 141020238365847,
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 771305683059643,
 											"parameters": {
-												"value": "-1"
+												"variable": "x",
+												"value": "diff"
 											}
 										}
 									],
-									"sid": 209014624420639,
+									"sid": 557935833599217,
 									"isOrBlock": true
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "spr_anticucho",
+									"sid": 847573212533961,
+									"parameters": {
+										"instance-variable": "grid_positions",
+										"value": "left(Self.grid_positions, len(Self.grid_positions) - 1)"
+									}
+								}
+							],
+							"sid": 699640926725566
 						}
 					]
-				},
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 142945237315241,
+					"parameters": {
+						"name": "\"eLevel/anticucho_orientation_diff\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 360654441197753,
+			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-function",
-							"objectClass": "Function",
-							"sid": 314635431063586,
+							"id": "pick-by-unique-id",
+							"objectClass": "spr_anticucho",
+							"sid": 148165258638395,
 							"parameters": {
-								"name": "\"eLevel/anticucho_size\""
+								"unique-id": "Function.Param(0)"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 568967712862011,
+					"sid": 874400132520987,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-unique-id",
+									"id": "is-within-angle",
 									"objectClass": "spr_anticucho",
-									"sid": 640621502746856,
+									"sid": 749133564396640,
 									"parameters": {
-										"unique-id": "Function.Param(0)"
+										"within": "0.5",
+										"angle": "0"
+									}
+								},
+								{
+									"id": "is-within-angle",
+									"objectClass": "spr_anticucho",
+									"sid": 873707557014913,
+									"parameters": {
+										"within": "0.5",
+										"angle": "270"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 270635074122253,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "spr_anticucho",
-											"sid": 192403740979305,
-											"parameters": {
-												"animation": "\"3_piece\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-return-value",
-											"objectClass": "Function",
-											"sid": 130907995065723,
-											"parameters": {
-												"value": "3"
-											}
-										}
-									],
-									"sid": 585770940253889
+									"id": "set-return-value",
+									"objectClass": "Function",
+									"sid": 470311624635195,
+									"parameters": {
+										"value": "1"
+									}
 								}
-							]
+							],
+							"sid": 849251333952247,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-within-angle",
+									"objectClass": "spr_anticucho",
+									"sid": 827142299205347,
+									"parameters": {
+										"within": "0.5",
+										"angle": "90"
+									}
+								},
+								{
+									"id": "is-within-angle",
+									"objectClass": "spr_anticucho",
+									"sid": 679359452873145,
+									"parameters": {
+										"within": "0.5",
+										"angle": "180"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-return-value",
+									"objectClass": "Function",
+									"sid": 259688200572632,
+									"parameters": {
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 903001536501431,
+							"isOrBlock": true
 						}
 					]
 				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 515646083052673,
+					"parameters": {
+						"name": "\"eLevel/anticucho_size\""
+					}
+				}
 			],
-			"sid": 993588823182431
+			"actions": [],
+			"sid": 177900877877944,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "spr_anticucho",
+							"sid": 774243386284830,
+							"parameters": {
+								"unique-id": "Function.Param(0)"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 569052665524142,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "spr_anticucho",
+									"sid": 573449822647045,
+									"parameters": {
+										"animation": "\"3_piece\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-return-value",
+									"objectClass": "Function",
+									"sid": 138838615682991,
+									"parameters": {
+										"value": "3"
+									}
+								}
+							],
+							"sid": 869813495442652
+						}
+					]
+				}
+			]
 		},
 		{
 			"eventType": "group",
@@ -765,6 +799,824 @@
 				}
 			],
 			"sid": 497267162338367
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "eLevel/Cooking",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 868350379098148,
+							"parameters": {
+								"object": "spr_anticucho"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 186754978117850,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Bar positioning and cooking"
+						},
+						{
+							"eventType": "variable",
+							"name": "top_bar_x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 946858118449824
+						},
+						{
+							"eventType": "variable",
+							"name": "top_bar_y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 618436503792979
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-within-angle",
+									"objectClass": "spr_anticucho",
+									"sid": 667832911576879,
+									"parameters": {
+										"within": "0.5",
+										"angle": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 808794590944689,
+									"parameters": {
+										"variable": "top_bar_x",
+										"value": "spr_anticucho.X + bar_anticucho_a.Width / 2"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 108881336399402,
+									"parameters": {
+										"variable": "top_bar_y",
+										"value": "spr_anticucho.Y"
+									}
+								}
+							],
+							"sid": 658747414919979
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-within-angle",
+									"objectClass": "spr_anticucho",
+									"sid": 790269534063407,
+									"parameters": {
+										"within": "0.5",
+										"angle": "90"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 634961086225146,
+									"parameters": {
+										"variable": "top_bar_x",
+										"value": "spr_anticucho.X - 50"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 605913456039423,
+									"parameters": {
+										"variable": "top_bar_y",
+										"value": "spr_anticucho.Y + 10"
+									}
+								}
+							],
+							"sid": 381864551591276
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_anticucho",
+									"sid": 410443361472128,
+									"parameters": {
+										"instance-variable": "side",
+										"comparison": 0,
+										"value": "\"A\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-progress",
+									"objectClass": "bar_anticucho_b",
+									"sid": 465394894166055,
+									"parameters": {
+										"value": "Self.Progress + dt"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_a",
+									"sid": 200893273871115,
+									"parameters": {
+										"x": "top_bar_x",
+										"y": "top_bar_y"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_b",
+									"sid": 362819903710077,
+									"parameters": {
+										"x": "bar_anticucho_a.X",
+										"y": "bar_anticucho_a.Y + Self.Height * 1.1"
+									}
+								}
+							],
+							"sid": 303089827975556
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_anticucho",
+									"sid": 816223546278080,
+									"parameters": {
+										"instance-variable": "side",
+										"comparison": 0,
+										"value": "\"B\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-progress",
+									"objectClass": "bar_anticucho_a",
+									"sid": 782226528691261,
+									"parameters": {
+										"value": "Self.Progress + dt"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_b",
+									"sid": 929489174884462,
+									"parameters": {
+										"x": "top_bar_x",
+										"y": "top_bar_y"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "bar_anticucho_a",
+									"sid": 484150397767201,
+									"parameters": {
+										"x": "bar_anticucho_b.X",
+										"y": "bar_anticucho_b.Y + Self.Height * 1.1"
+									}
+								}
+							],
+							"sid": 545501281524334
+						},
+						{
+							"eventType": "comment",
+							"text": "Anticucho burning"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 658411213110852,
+									"parameters": {
+										"first-value": "spr_anticucho.UID",
+										"comparison": 1,
+										"second-value": "spr_player.grabbed_anticucho_uid"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 516919456220164,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "spr_anticucho",
+											"sid": 477606339782353,
+											"parameters": {
+												"instance-variable": "side",
+												"comparison": 0,
+												"value": "\"B\""
+											}
+										},
+										{
+											"id": "compare-progress",
+											"objectClass": "bar_anticucho_a",
+											"sid": 285370320336291,
+											"parameters": {
+												"comparison": 0,
+												"value": "Self.Maximum"
+											}
+										},
+										{
+											"id": "is-flashing",
+											"objectClass": "bar_anticucho_a",
+											"sid": 790872165661444,
+											"behaviorType": "Flash",
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 522190432544196,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_a",
+													"sid": 374718811768938,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"last_warning\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "spr_anticucho",
+													"sid": 300564423849762,
+													"parameters": {
+														"instance-variable": "burnt"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "spr_anticucho",
+													"sid": 617456648134265,
+													"parameters": {
+														"instance-variable": "burnt",
+														"value": "true"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 770034901014474,
+													"parameters": {
+														"seconds": "1.8"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "spr_anticucho",
+													"sid": 302596407761420
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 581991350965869,
+													"parameters": {
+														"variable": "lives",
+														"value": "1"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 850106810102831,
+													"parameters": {
+														"name": "\"eLevel/Cooking.remove_anticucho_from_array\"",
+														"parameter-n": [
+															"spr_anticucho.UID"
+														]
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "txt_score",
+													"sid": 236228884751739,
+													"parameters": {
+														"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
+													}
+												}
+											],
+											"sid": 139504770529415
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_a",
+													"sid": 114972653013646,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"first_warning\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "bar_anticucho_a",
+													"sid": 327994383151236,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "3.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bar_anticucho_a",
+													"sid": 136610750332672,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"value": "\"last_warning\""
+													}
+												}
+											],
+											"sid": 150550508601950
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_a",
+													"sid": 404039418449631,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"none\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "bar_anticucho_a",
+													"sid": 627857275606227,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.5",
+														"off-time": "0.1",
+														"duration": "5.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bar_anticucho_a",
+													"sid": 878738917392812,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"value": "\"first_warning\""
+													}
+												}
+											],
+											"sid": 674303919242797
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "spr_anticucho",
+											"sid": 879866546607221,
+											"parameters": {
+												"instance-variable": "side",
+												"comparison": 0,
+												"value": "\"A\""
+											}
+										},
+										{
+											"id": "compare-progress",
+											"objectClass": "bar_anticucho_b",
+											"sid": 292870072860889,
+											"parameters": {
+												"comparison": 0,
+												"value": "Self.Maximum"
+											}
+										},
+										{
+											"id": "is-flashing",
+											"objectClass": "bar_anticucho_b",
+											"sid": 725316226859331,
+											"behaviorType": "Flash",
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 440671270212910,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_b",
+													"sid": 265755182534714,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"last_warning\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "spr_anticucho",
+													"sid": 326988519070638,
+													"parameters": {
+														"instance-variable": "burnt"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "spr_anticucho",
+													"sid": 972650111784270,
+													"parameters": {
+														"instance-variable": "burnt",
+														"value": "true"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 656594954957876,
+													"parameters": {
+														"seconds": "1.8"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "spr_anticucho",
+													"sid": 180574402740555
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 273712123560729,
+													"parameters": {
+														"variable": "lives",
+														"value": "1"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "Function",
+													"sid": 524387302555166,
+													"parameters": {
+														"name": "\"eLevel/Cooking.remove_anticucho_from_array\"",
+														"parameter-n": [
+															"spr_anticucho.UID"
+														]
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "txt_score",
+													"sid": 701674645283168,
+													"parameters": {
+														"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
+													}
+												}
+											],
+											"sid": 481602771939613
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_b",
+													"sid": 587810152295328,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"first_warning\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "bar_anticucho_b",
+													"sid": 515894710428297,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "3.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bar_anticucho_b",
+													"sid": 935214305990162,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"value": "\"last_warning\""
+													}
+												}
+											],
+											"sid": 512291342477290
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bar_anticucho_b",
+													"sid": 549571316387085,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"comparison": 0,
+														"value": "\"none\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "bar_anticucho_b",
+													"sid": 199722845658690,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.5",
+														"off-time": "0.1",
+														"duration": "5.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "bar_anticucho_b",
+													"sid": 329497045384638,
+													"parameters": {
+														"instance-variable": "burn_status",
+														"value": "\"first_warning\""
+													}
+												}
+											],
+											"sid": 711764801693560
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Sending a finished anticucho"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "spr_anticucho",
+							"sid": 327019845154856,
+							"parameters": {
+								"unique-id": "spr_player.grabbed_anticucho_uid"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 238026110181313,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-progress",
+									"objectClass": "bar_anticucho_a",
+									"sid": 549835134477269,
+									"parameters": {
+										"comparison": 0,
+										"value": "Self.Maximum"
+									}
+								},
+								{
+									"id": "compare-progress",
+									"objectClass": "bar_anticucho_b",
+									"sid": 429385863549399,
+									"parameters": {
+										"comparison": 0,
+										"value": "Self.Maximum"
+									}
+								},
+								{
+									"id": "compare-opacity",
+									"objectClass": "spr_anticucho",
+									"sid": 129012608508577,
+									"parameters": {
+										"comparison": 0,
+										"opacity": "100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-fade",
+									"objectClass": "spr_anticucho",
+									"sid": 576830275215715,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 635905651914795,
+									"parameters": {
+										"name": "\"eLevel/Cooking.remove_anticucho_from_array\"",
+										"parameter-n": [
+											"spr_anticucho.UID"
+										]
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 293693470974128,
+									"parameters": {
+										"variable": "anticuchos",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_score",
+									"sid": 268199088778479,
+									"parameters": {
+										"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
+									}
+								}
+							],
+							"sid": 618359049968265
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 283124557537768,
+							"parameters": {
+								"name": "\"eLevel/Cooking.remove_anticucho_from_array\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 203010016622854,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 600185250977313
+						},
+						{
+							"eventType": "variable",
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 561306466389107
+						},
+						{
+							"eventType": "variable",
+							"name": "positions",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 659684702043200
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "spr_anticucho",
+									"sid": 250652562474318,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 527496593563249,
+									"parameters": {
+										"variable": "positions",
+										"value": "spr_anticucho.grid_positions"
+									}
+								}
+							],
+							"sid": 199271035351379,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 628008708877989,
+											"parameters": {
+												"name": "\"\"",
+												"start-index": "0",
+												"end-index": "tokencount(positions, \"|\") - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 556362017708032,
+											"parameters": {
+												"variable": "x",
+												"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\"))"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 797644579660995,
+											"parameters": {
+												"variable": "y",
+												"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\"))"
+											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "arr_board_state",
+											"sid": 637696154781626,
+											"parameters": {
+												"x": "x",
+												"y": "y",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 869649212446456
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 448996447243405
 		},
 		{
 			"eventType": "group",
@@ -4657,7 +5509,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "eLevel/Cooking",
+			"title": "eLevel/Spawning",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -4665,705 +5517,27 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 508149353796826,
-							"parameters": {
-								"object": "spr_anticucho"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 654936357212501,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Bar positioning and cooking"
-						},
-						{
-							"eventType": "variable",
-							"name": "top_bar_x",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 322110948376162
-						},
-						{
-							"eventType": "variable",
-							"name": "top_bar_y",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 117044175852749
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-within-angle",
-									"objectClass": "spr_anticucho",
-									"sid": 960465407200212,
-									"parameters": {
-										"within": "0.5",
-										"angle": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 815039232148868,
-									"parameters": {
-										"variable": "top_bar_x",
-										"value": "spr_anticucho.X + bar_anticucho_a.Width / 2"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 879833947319393,
-									"parameters": {
-										"variable": "top_bar_y",
-										"value": "spr_anticucho.Y"
-									}
-								}
-							],
-							"sid": 483430355800089
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-within-angle",
-									"objectClass": "spr_anticucho",
-									"sid": 513548443426786,
-									"parameters": {
-										"within": "0.5",
-										"angle": "90"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 690058080949854,
-									"parameters": {
-										"variable": "top_bar_x",
-										"value": "spr_anticucho.X - 50"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 495818869552175,
-									"parameters": {
-										"variable": "top_bar_y",
-										"value": "spr_anticucho.Y + 10"
-									}
-								}
-							],
-							"sid": 440048882546897
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "spr_anticucho",
-									"sid": 446546044473715,
-									"parameters": {
-										"instance-variable": "side",
-										"comparison": 0,
-										"value": "\"A\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-progress",
-									"objectClass": "bar_anticucho_b",
-									"sid": 198876739937362,
-									"parameters": {
-										"value": "Self.Progress + dt"
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "bar_anticucho_a",
-									"sid": 370689381254451,
-									"parameters": {
-										"x": "top_bar_x",
-										"y": "top_bar_y"
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "bar_anticucho_b",
-									"sid": 716192868371972,
-									"parameters": {
-										"x": "bar_anticucho_a.X",
-										"y": "bar_anticucho_a.Y + Self.Height * 1.1"
-									}
-								}
-							],
-							"sid": 337118667831458
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "spr_anticucho",
-									"sid": 498513662219796,
-									"parameters": {
-										"instance-variable": "side",
-										"comparison": 0,
-										"value": "\"B\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-progress",
-									"objectClass": "bar_anticucho_a",
-									"sid": 593364573618350,
-									"parameters": {
-										"value": "Self.Progress + dt"
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "bar_anticucho_b",
-									"sid": 693700463689877,
-									"parameters": {
-										"x": "top_bar_x",
-										"y": "top_bar_y"
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "bar_anticucho_a",
-									"sid": 856267105335437,
-									"parameters": {
-										"x": "bar_anticucho_b.X",
-										"y": "bar_anticucho_b.Y + Self.Height * 1.1"
-									}
-								}
-							],
-							"sid": 427268292811729
-						},
-						{
-							"eventType": "comment",
-							"text": "Anticucho burning"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 191763536343524,
-									"parameters": {
-										"first-value": "spr_anticucho.UID",
-										"comparison": 1,
-										"second-value": "spr_player.grabbed_anticucho_uid"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 220522975545915,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "spr_anticucho",
-											"sid": 894103291086832,
-											"parameters": {
-												"instance-variable": "side",
-												"comparison": 0,
-												"value": "\"B\""
-											}
-										},
-										{
-											"id": "compare-progress",
-											"objectClass": "bar_anticucho_a",
-											"sid": 152971495492485,
-											"parameters": {
-												"comparison": 0,
-												"value": "Self.Maximum"
-											}
-										},
-										{
-											"id": "is-flashing",
-											"objectClass": "bar_anticucho_a",
-											"sid": 855008562919522,
-											"behaviorType": "Flash",
-											"isInverted": true
-										}
-									],
-									"actions": [],
-									"sid": 673411531510138,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "bar_anticucho_a",
-													"sid": 622236728470381,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"comparison": 0,
-														"value": "\"last_warning\""
-													}
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "spr_anticucho",
-													"sid": 204066319735969,
-													"parameters": {
-														"instance-variable": "burnt"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "spr_anticucho",
-													"sid": 995711221340227,
-													"parameters": {
-														"instance-variable": "burnt",
-														"value": "true"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 805043913416751,
-													"parameters": {
-														"seconds": "1.8"
-													}
-												},
-												{
-													"id": "destroy",
-													"objectClass": "spr_anticucho",
-													"sid": 762800842948266
-												},
-												{
-													"id": "subtract-from-eventvar",
-													"objectClass": "System",
-													"sid": 437715392898508,
-													"parameters": {
-														"variable": "lives",
-														"value": "1"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "Function",
-													"sid": 760809971802478,
-													"parameters": {
-														"name": "\"eLevel/Cooking.remove_anticucho_from_array\"",
-														"parameter-n": [
-															"spr_anticucho.UID"
-														]
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "txt_score",
-													"sid": 634895701627850,
-													"parameters": {
-														"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
-													}
-												}
-											],
-											"sid": 544015857172254
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "bar_anticucho_a",
-													"sid": 276658460214487,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"comparison": 0,
-														"value": "\"first_warning\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "flash",
-													"objectClass": "bar_anticucho_a",
-													"sid": 602289978369989,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.1",
-														"off-time": "0.1",
-														"duration": "3.0"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "bar_anticucho_a",
-													"sid": 704854335148295,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"value": "\"last_warning\""
-													}
-												}
-											],
-											"sid": 956248965703437
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "bar_anticucho_a",
-													"sid": 727014163462425,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"comparison": 0,
-														"value": "\"none\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "flash",
-													"objectClass": "bar_anticucho_a",
-													"sid": 940660393088957,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.5",
-														"off-time": "0.1",
-														"duration": "5.0"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "bar_anticucho_a",
-													"sid": 101934658478333,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"value": "\"first_warning\""
-													}
-												}
-											],
-											"sid": 847803129294002
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "spr_anticucho",
-											"sid": 728276588275017,
-											"parameters": {
-												"instance-variable": "side",
-												"comparison": 0,
-												"value": "\"A\""
-											}
-										},
-										{
-											"id": "compare-progress",
-											"objectClass": "bar_anticucho_b",
-											"sid": 983291843588084,
-											"parameters": {
-												"comparison": 0,
-												"value": "Self.Maximum"
-											}
-										},
-										{
-											"id": "is-flashing",
-											"objectClass": "bar_anticucho_b",
-											"sid": 235203081451600,
-											"behaviorType": "Flash",
-											"isInverted": true
-										}
-									],
-									"actions": [],
-									"sid": 833855165440164,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "bar_anticucho_b",
-													"sid": 524432262672591,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"comparison": 0,
-														"value": "\"last_warning\""
-													}
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "spr_anticucho",
-													"sid": 346781794988560,
-													"parameters": {
-														"instance-variable": "burnt"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "spr_anticucho",
-													"sid": 941657173786305,
-													"parameters": {
-														"instance-variable": "burnt",
-														"value": "true"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 672071394644633,
-													"parameters": {
-														"seconds": "1.8"
-													}
-												},
-												{
-													"id": "destroy",
-													"objectClass": "spr_anticucho",
-													"sid": 933090168705066
-												},
-												{
-													"id": "subtract-from-eventvar",
-													"objectClass": "System",
-													"sid": 670259390982716,
-													"parameters": {
-														"variable": "lives",
-														"value": "1"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "Function",
-													"sid": 492204546285423,
-													"parameters": {
-														"name": "\"eLevel/Cooking.remove_anticucho_from_array\"",
-														"parameter-n": [
-															"spr_anticucho.UID"
-														]
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "txt_score",
-													"sid": 230825304015221,
-													"parameters": {
-														"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
-													}
-												}
-											],
-											"sid": 701495084475164
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "bar_anticucho_b",
-													"sid": 118202715860157,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"comparison": 0,
-														"value": "\"first_warning\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "flash",
-													"objectClass": "bar_anticucho_b",
-													"sid": 989670865077654,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.1",
-														"off-time": "0.1",
-														"duration": "3.0"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "bar_anticucho_b",
-													"sid": 483588947199666,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"value": "\"last_warning\""
-													}
-												}
-											],
-											"sid": 168298022827403
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "bar_anticucho_b",
-													"sid": 680380406481444,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"comparison": 0,
-														"value": "\"none\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "flash",
-													"objectClass": "bar_anticucho_b",
-													"sid": 703993530450172,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.5",
-														"off-time": "0.1",
-														"duration": "5.0"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "bar_anticucho_b",
-													"sid": 843080943331095,
-													"parameters": {
-														"instance-variable": "burn_status",
-														"value": "\"first_warning\""
-													}
-												}
-											],
-											"sid": 838099785572701
-										}
-									]
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Sending a finished anticucho"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "spr_anticucho",
-							"sid": 892544542520349,
-							"parameters": {
-								"unique-id": "spr_player.grabbed_anticucho_uid"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 984646776252646,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-progress",
-									"objectClass": "bar_anticucho_a",
-									"sid": 696391560985629,
-									"parameters": {
-										"comparison": 0,
-										"value": "Self.Maximum"
-									}
-								},
-								{
-									"id": "compare-progress",
-									"objectClass": "bar_anticucho_b",
-									"sid": 559480790386227,
-									"parameters": {
-										"comparison": 0,
-										"value": "Self.Maximum"
-									}
-								},
-								{
-									"id": "compare-opacity",
-									"objectClass": "spr_anticucho",
-									"sid": 677883822344887,
-									"parameters": {
-										"comparison": 0,
-										"opacity": "100"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "start-fade",
-									"objectClass": "spr_anticucho",
-									"sid": 472552289921625,
-									"behaviorType": "Fade"
-								},
-								{
-									"id": "call-function",
-									"objectClass": "Function",
-									"sid": 909084725673142,
-									"parameters": {
-										"name": "\"eLevel/Cooking.remove_anticucho_from_array\"",
-										"parameter-n": [
-											"spr_anticucho.UID"
-										]
-									}
-								},
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 408189121309374,
-									"parameters": {
-										"variable": "anticuchos",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "txt_score",
-									"sid": 925736667662717,
-									"parameters": {
-										"text": "\"Anticuchos: \" & anticuchos & newline & \"Lives: \" & lives"
-									}
-								}
-							],
-							"sid": 494360321611903
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-function",
 							"objectClass": "Function",
-							"sid": 820150013614915,
+							"sid": 264403023796738,
 							"parameters": {
-								"name": "\"eLevel/Cooking.remove_anticucho_from_array\""
+								"name": "\"eLevel/Spawning.spawn_anticucho\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 417297516687637,
+					"sid": 817212411499817,
 					"children": [
+						{
+							"eventType": "variable",
+							"name": "spawn_angle",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 648078050352769
+						},
 						{
 							"eventType": "variable",
 							"name": "x",
@@ -5372,7 +5546,7 @@
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 725962164415709
+							"sid": 306165903364538
 						},
 						{
 							"eventType": "variable",
@@ -5382,54 +5556,295 @@
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 222618772573883
+							"sid": 355961894814013
 						},
 						{
-							"eventType": "variable",
-							"name": "positions",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 494008819626221
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 165704921357065,
+									"parameters": {
+										"variable": "spawn_angle",
+										"value": "choose(0, 90)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 579760953220800,
+									"parameters": {
+										"variable": "x",
+										"value": "round(random(0, arr_board_state.Width -1))"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 175595897790390,
+									"parameters": {
+										"variable": "y",
+										"value": "round(random(0, arr_board_state.Height - 1))"
+									}
+								}
+							],
+							"sid": 474219906110724
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-unique-id",
-									"objectClass": "spr_anticucho",
-									"sid": 738105637046562,
-									"parameters": {
-										"unique-id": "Function.Param(0)"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
+									"id": "for",
 									"objectClass": "System",
-									"sid": 435553706533360,
+									"sid": 481335326561194,
 									"parameters": {
-										"variable": "positions",
-										"value": "spr_anticucho.grid_positions"
+										"name": "\"\"",
+										"start-index": "x",
+										"end-index": "arr_board_state.Width - 1"
 									}
 								}
 							],
-							"sid": 786508838249024,
+							"actions": [],
+							"sid": 861661549349700,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "for",
+											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 364365974718956,
+											"sid": 596592038560216,
 											"parameters": {
-												"name": "\"\"",
-												"start-index": "0",
-												"end-index": "tokencount(positions, \"|\") - 1"
+												"first-value": "Function.Call(\"eLevel/Spawning.can_place_anticucho\", loopindex, y, spawn_angle)",
+												"comparison": 0,
+												"second-value": "\"true\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 924637474537105,
+											"parameters": {
+												"object-to-create": "spr_anticucho",
+												"layer": "\"objects\"",
+												"x": "-100",
+												"y": "-100"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "spr_anticucho",
+											"sid": 585482854278409,
+											"parameters": {
+												"angle": "spawn_angle"
+											}
+										},
+										{
+											"id": "set-x",
+											"objectClass": "spr_anticucho",
+											"sid": 730679450315229,
+											"parameters": {
+												"x": "loopindex * TILE_SIZE"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "spr_anticucho",
+											"sid": 411833982498647,
+											"parameters": {
+												"y": "y * TILE_SIZE"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_anticucho",
+											"sid": 202449479848184,
+											"parameters": {
+												"instance-variable": "world_x",
+												"value": "Self.X"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "spr_anticucho",
+											"sid": 848415152011489,
+											"parameters": {
+												"instance-variable": "world_y",
+												"value": "Self.Y"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "Function",
+											"sid": 397941817846332,
+											"parameters": {
+												"name": "\"eLevel.add_anticucho_to_array\"",
+												"parameter-n": [
+													"spr_anticucho.UID"
+												]
+											}
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 962323059034252
+										}
+									],
+									"sid": 233883991491236
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 191946193808166,
+							"parameters": {
+								"name": "\"eLevel/Spawning.can_place_anticucho\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 407653355647993,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 527246038567793
+						},
+						{
+							"eventType": "variable",
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 721206775980261
+						},
+						{
+							"eventType": "variable",
+							"name": "orientation",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "The angle the anticucho shall be placed in.",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 380342261243775
+						},
+						{
+							"eventType": "variable",
+							"name": "return",
+							"type": "string",
+							"initialValue": "true",
+							"comment": "True until proven false.",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 964154144629119
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 450900063888648,
+									"parameters": {
+										"variable": "x",
+										"value": "Function.Param(0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 835627144761283,
+									"parameters": {
+										"variable": "y",
+										"value": "Function.Param(1)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 342407430524274,
+									"parameters": {
+										"variable": "orientation",
+										"value": "Function.Param(2)"
+									}
+								}
+							],
+							"sid": 467799636394560
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 596807156813945,
+									"parameters": {
+										"variable": "orientation",
+										"comparison": 0,
+										"value": "90"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 822270425894718,
+									"parameters": {
+										"variable": "x",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 966967348991451
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 542265188534724,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "0",
+										"end-index": "2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 902000269839631,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-xy",
+											"objectClass": "arr_board_state",
+											"sid": 378572097271778,
+											"parameters": {
+												"x": "x",
+												"y": "y",
+												"comparison": 1,
+												"value": "0"
 											}
 										}
 									],
@@ -5437,40 +5852,281 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 775626241786547,
+											"sid": 545990147735169,
 											"parameters": {
-												"variable": "x",
-												"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 0, \",\"))"
+												"variable": "return",
+												"value": "\"false\""
 											}
+										}
+									],
+									"sid": 630085737651168
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 115823461682632,
+											"parameters": {
+												"value": "x",
+												"lower-bound": "0",
+												"upper-bound": "arr_board_state.Width - 1"
+											},
+											"isInverted": true
 										},
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 776629102100210,
+											"parameters": {
+												"value": "y",
+												"lower-bound": "0",
+												"upper-bound": "arr_board_state.Height - 1"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 980335709168313,
+											"sid": 904459966587083,
 											"parameters": {
-												"variable": "y",
-												"value": "int(tokenat(tokenat(positions, loopindex, \"|\"), 1, \",\"))"
+												"variable": "return",
+												"value": "\"false\""
 											}
-										},
+										}
+									],
+									"sid": 826129691246612,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
 										{
-											"id": "set-at-xy",
-											"objectClass": "arr_board_state",
-											"sid": 672375761009397,
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 692588325161615,
 											"parameters": {
-												"x": "x",
-												"y": "y",
+												"variable": "orientation",
+												"comparison": 0,
 												"value": "0"
 											}
 										}
 									],
-									"sid": 285552020998697
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 838554575445563,
+											"parameters": {
+												"variable": "y",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 135784259651815
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 563006654049594,
+											"parameters": {
+												"variable": "orientation",
+												"comparison": 0,
+												"value": "90"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 571566387306099,
+											"parameters": {
+												"variable": "x",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 784080948309567
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-return-value",
+									"objectClass": "Function",
+									"sid": 805288221466343,
+									"parameters": {
+										"value": "return"
+									}
+								}
+							],
+							"sid": 421167807099115
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "spawn_timer",
+					"type": "number",
+					"initialValue": "15",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 762331528912044
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 638508616580902
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 527142676380449,
+							"parameters": {
+								"variable": "spawn_timer",
+								"value": "dt"
+							}
+						}
+					],
+					"sid": 555057497258771
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 345105309521393,
+							"parameters": {
+								"variable": "spawn_timer",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "Function",
+							"sid": 275378976513779,
+							"parameters": {
+								"name": "\"eLevel/Spawning.spawn_anticucho\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 325060707971894,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 996172220337753,
+									"parameters": {
+										"variable": "anticuchos",
+										"comparison": 2,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 744425461949213,
+									"parameters": {
+										"variable": "spawn_timer",
+										"value": "random(10, 12)"
+									}
+								}
+							],
+							"sid": 107798095712693
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 350337598869187
+								}
+							],
+							"actions": [],
+							"sid": 384805610604553,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 831639494995421,
+											"parameters": {
+												"variable": "anticuchos",
+												"comparison": 2,
+												"value": "8"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 608204422758300,
+											"parameters": {
+												"variable": "spawn_timer",
+												"value": "random(6, 8)"
+											}
+										}
+									],
+									"sid": 377553554757898
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 795577765511916
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 187875070831854,
+											"parameters": {
+												"variable": "spawn_timer",
+												"value": "random(4, 5)"
+											}
+										}
+									],
+									"sid": 781891805789633
 								}
 							]
 						}
 					]
 				}
 			],
-			"sid": 211698844447990
+			"sid": 566811117630356
 		},
 		{
 			"eventType": "group",
