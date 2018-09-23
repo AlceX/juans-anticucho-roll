@@ -1627,7 +1627,7 @@
 					"type": "bar_anticucho_a",
 					"properties": {
 						"value": 0,
-						"maximum": 12,
+						"maximum": 16,
 						"tooltip": "",
 						"initially-visible": true,
 						"id": ""
@@ -1660,7 +1660,7 @@
 					"type": "bar_anticucho_b",
 					"properties": {
 						"value": 0,
-						"maximum": 12,
+						"maximum": 16,
 						"tooltip": "",
 						"initially-visible": true,
 						"id": ""
